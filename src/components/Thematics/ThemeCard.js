@@ -18,7 +18,7 @@ export default function ThemeCard({ theme }) {
           className="object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
         />
       </div>
-      <p className={`text-center ${textColor} text-sm sm:text-[15px] lg:text-[16px] mt-2 font-poppins w-[180px] sm:w-[200px] lg:w-[210px]`}>
+      <p className={`text-center ${textColor} text-sm sm:text-sm lg:text-base mt-2 font-poppins w-[180px] sm:w-[200px] lg:w-[210px]`}>
         {theme.title === "rencontres & emotions" ? (
           <>
             <span className="font-light">rencontres </span>

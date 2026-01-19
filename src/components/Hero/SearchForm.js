@@ -4,7 +4,7 @@ import "./AnimatedButton.css";
 
 export default function SearchForm() {
   return (
-    <div className="bg-[#102F77] rounded-full w-full max-w-fit h-[60px] px-2">
+    <div className="bg-[#102F77] rounded-full w-full max-w-fit h-[60px] px-2 mt-[80px]">
       <div className="flex h-full flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 lg:gap-4">
         {/* Période */}
         <div className="flex items-center gap-2 sm:gap-3 border-b sm:border-b-0 sm:border-r border-white/80 pb-2 sm:pb-0 pr-0 sm:pr-3 lg:pr-4 pl-2 sm:pl-3 lg:pl-4">

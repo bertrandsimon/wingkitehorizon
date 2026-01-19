@@ -7,6 +7,7 @@ import TopToolbar from "@/components/Header/TopToolbar";
 import HeroSection from "@/components/Hero/HeroSection";
 // import AnimatedNav from "@/components/Navigation/AnimatedNav";
 import PhotoNav from "@/components/PhotoNav/PhotoNav";
+import Presentation from "@/components/Presentation/Presentation";
 import TestimonialCarousel from "@/components/Testimonials/TestimonialCarousel";
 import ThematicSection from "@/components/Thematics/ThematicSection";
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
           <div className="-mt-20 sm:-mt-40">
             <ThematicSection />
           </div>
+          <Presentation />
           <PhotoNav />
           <TestimonialCarousel />
           <Favorites />
