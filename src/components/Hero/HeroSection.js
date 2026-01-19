@@ -12,7 +12,7 @@ import HeroTitle from "./HeroTitle";
 import SearchForm from "./SearchForm";
 export default function HeroSection() {
   const slides = [
-    "/images/slide-1.jpg",
+    "/images/slider1.jpg",
     "/images/Rectangle 231.png",
     "/images/Rectangle 232.png",
   ];
@@ -43,21 +43,31 @@ export default function HeroSection() {
             style={{ objectPosition: "center top" }}
           />
         </div>
-        <div className="absolute inset-0 bg-black/40"></div>
+      </div>
+
+      {/* Kiter overlay */}
+      <div className="absolute top-0 left-0 sm:left-2 lg:left-4 z-5 pointer-events-none">
+        <Image
+          src="/images/kiter.png"
+          alt="Kiter"
+          width={420}
+          height={420}
+          className="w-[200px] sm:w-[260px] lg:w-[340px] h-auto"
+        />
       </div>
 
       {/* Left Navigation Arrow */}
       <button
         onClick={prevSlide}
-        className="hidden sm:flex absolute left-2 sm:left-4 lg:left-8 z-10 p-2 text-white hover:text-[#df986c] transition-colors cursor-pointer items-center h-full"
+        className="hidden sm:flex absolute left-2 sm:left-4 lg:left-8 z-20 p-2 text-white hover:text-[#df986c] transition-colors cursor-pointer items-center h-full"
         aria-label="Previous slide"
       >
         <ArrowLongLeftIcon className="w-5 h-5 sm:w-6 sm:h-6" />
       </button>
 
       {/* Content */}
-      <div className="relative z-10 container max-w-[1200px] px-4 py-16 sm:py-24 lg:py-32 flex items-center justify-center">
-        <div className="max-w-5xl text-center w-full px-2">
+      <div className="relative z-20 container max-w-[1200px] px-4 py-16 sm:py-24 lg:py-32 flex items-center justify-start">
+        <div className="max-w-5xl text-left w-full px-2">
           <HeroTitle key={currentIndex} />
 
           <SearchForm />
@@ -67,7 +77,7 @@ export default function HeroSection() {
       {/* Right Navigation Arrow */}
       <button
         onClick={nextSlide}
-        className="hidden sm:flex absolute right-2 sm:right-4 lg:right-8 z-10 p-2 text-white hover:text-[#df986c] transition-colors cursor-pointer items-center h-full"
+        className="hidden sm:flex absolute right-2 sm:right-4 lg:right-8 z-20 p-2 text-white hover:text-[#df986c] transition-colors cursor-pointer items-center h-full"
         aria-label="Next slide"
       >
         <ArrowLongRightIcon className="w-5 h-5 sm:w-6 sm:h-6" />

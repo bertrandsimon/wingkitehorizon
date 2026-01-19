@@ -22,6 +22,6 @@ export const images = {
 
 // Contact information
 export const contactInfo = {
-  phone: "(33) 2 85 52 60 29",
+  phone: "+55 19 991836664",
   email: "contact@wingkitehorizon.com",
 };

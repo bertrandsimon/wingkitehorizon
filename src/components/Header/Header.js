@@ -33,19 +33,15 @@ export default function Header() {
       <div className="flex items-center justify-between py-2 sm:py-4">
         <div
           className="h-[50px] w-[110px] sm:h-[69px] sm:w-[148px] relative flex-shrink-0"
-          data-name="Amedia logo"
+          data-name="Wing Kite Horizon logo"
         >
           <div
             className="absolute inset-0 pointer-events-none"
             style={{ overflow: "hidden" }}
           >
             <Image
-              src={
-                isSticky
-                  ? "/images/amedida-logo-noir.png"
-                  : "/images/amedida-logo-blanc.png"
-              }
-              alt="AMEDIDA Logo"
+              src="/images/logo-wingkite-horizon.png"
+              alt="Wing Kite Horizon Logo"
               className="object-contain"
               width={148}
               height={69}
@@ -62,7 +58,7 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-3">
           <button
             type="button"
-            className="cursor-pointer bg-black text-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-poppins hover:bg-[#df986c] transition-colors"
+            className="cursor-pointer bg-black text-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-poppins hover:bg-[#55BAC6] transition-colors"
           >
             Contact
           </button>
@@ -95,7 +91,7 @@ export default function Header() {
             <div className="flex items-center justify-between pt-4">
               <button
                 type="button"
-                className="cursor-pointer bg-black text-white px-4 py-2 rounded-full text-sm font-poppins hover:bg-[#df986c] transition-colors"
+                className="cursor-pointer bg-black text-white px-4 py-2 rounded-full text-sm font-poppins hover:bg-[#55BAC6] transition-colors"
               >
                 Contact
               </button>

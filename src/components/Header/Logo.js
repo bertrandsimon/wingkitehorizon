@@ -4,15 +4,15 @@ export default function Logo() {
   return (
     <div
       className="h-[69px] w-[148px] relative flex-shrink-0"
-      data-name="Amedia logo"
+      data-name="Wing Kite Horizon logo"
     >
       <div
         className="absolute inset-0 pointer-events-none"
         style={{ overflow: "hidden" }}
       >
         <Image
-          src="/images/amedida-logo.png"
-          alt="AMEDIDA Logo"
+          src="/images/logo-wingkite-horizon.png"
+          alt="Wing Kite Horizon logo"
           fill
           className="object-contain"
           style={{

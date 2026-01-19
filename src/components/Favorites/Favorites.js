@@ -22,10 +22,10 @@ export default function Favorites({
               </div>
             </div>
             {/* Back */}
-            <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-xl bg-[#DF986C] flex items-center justify-center">
+            <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-xl bg-[#55BAC6] flex items-center justify-center">
               <div className="flex flex-col items-center justify-center">
-                <p className="text-black text-sm font-medium">Découvrez</p>
-                <p className="text-black text-xl font-bold">L'Indonésie</p>
+                <p className="text-white text-sm font-medium">Découvrez</p>
+                <p className="text-white text-xl font-bold">L'Indonésie</p>
               </div>
             </div>
           </div>
@@ -44,10 +44,10 @@ export default function Favorites({
               </div>
             </div>
             {/* Back */}
-            <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-xl bg-[#DF986C] flex items-center justify-center">
+            <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-xl bg-[#55BAC6] flex items-center justify-center">
               <div className="flex flex-col items-center justify-center">
-                <p className="text-black text-sm font-medium">Explorez</p>
-                <p className="text-black text-xl font-bold">Les Tropiques</p>
+                <p className="text-white text-sm font-medium">Explorez</p>
+                <p className="text-white text-xl font-bold">Les Tropiques</p>
               </div>
             </div>
           </div>
@@ -66,10 +66,10 @@ export default function Favorites({
               </div>
             </div>
             {/* Back */}
-            <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-xl bg-[#DF986C] flex items-center justify-center">
+            <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-xl bg-[#55BAC6] flex items-center justify-center">
               <div className="flex flex-col items-center justify-center">
-                <p className="text-black text-sm font-medium">Vivez</p>
-                <p className="text-black text-xl font-bold">L'Aventure</p>
+                <p className="text-white text-sm font-medium">Vivez</p>
+                <p className="text-white text-xl font-bold">L'Aventure</p>
               </div>
             </div>
           </div>

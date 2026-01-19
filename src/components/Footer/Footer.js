@@ -77,7 +77,7 @@ export default function Footer() {
               />
               <button
                 type="button"
-                className="bg-[#c48056] rounded-[8px] h-[34px] px-4 text-white text-xs sm:text-sm font-poppins uppercase hover:bg-[#DF986C] transition-colors whitespace-nowrap"
+                className="bg-[#55BAC6] rounded-[8px] h-[34px] px-4 text-white text-xs sm:text-sm font-poppins uppercase hover:bg-[#DF986C] transition-colors whitespace-nowrap"
               >
                 ok
               </button>

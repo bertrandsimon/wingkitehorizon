@@ -4,8 +4,8 @@ import "./AnimatedButton.css";
 
 export default function SearchForm() {
   return (
-    <div className="bg-black/80 backdrop-blur-sm rounded-full w-full max-w-fit mx-auto p-2 sm:p-3">
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 lg:gap-4">
+    <div className="bg-[#102F77] rounded-full w-full max-w-fit h-[60px] px-2">
+      <div className="flex h-full flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 lg:gap-4">
         {/* Période */}
         <div className="flex items-center gap-2 sm:gap-3 border-b sm:border-b-0 sm:border-r border-white/80 pb-2 sm:pb-0 pr-0 sm:pr-3 lg:pr-4 pl-2 sm:pl-3 lg:pl-4">
           <CalendarDays className="w-4 h-4 sm:w-5 sm:h-5 lg:w-[20px] lg:h-[20px] text-white flex-shrink-0" />
@@ -57,7 +57,9 @@ export default function SearchForm() {
         {/* Voyager Button */}
         <button className="animated-button self-center sm:self-auto mt-2 sm:mt-0">
           <span className="animated-button-text">Go</span>
-          <span className="animated-button-title">Envie de voyager ?</span>
+          <span className="animated-button-title">
+            Kite / wing au paradis ?
+          </span>
         </button>
       </div>
     </div>

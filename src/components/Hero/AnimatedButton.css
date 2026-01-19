@@ -1,10 +1,10 @@
 .animated-button {
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background: white;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border-radius: 50px;
+  border-radius: 60px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -27,7 +27,7 @@
   position: absolute;
   inset: 0;
   border-radius: 60px;
-  background: #DF986C;
+  background: #55BAC6;
   opacity: 0;
   transition: 0.5s;
 }
@@ -39,7 +39,7 @@
   width: 100%;
   height: 100%;
   border-radius: 60px;
-  background: #DF986C;
+  background: #55BAC6;
   transition: 0.5s;
   filter: blur(15px);
   z-index: -1;
