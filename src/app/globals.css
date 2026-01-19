@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #181818;
-  --foreground: #ffffff;
+  --background: #EFEEF1;
+  --foreground: #111111;
   --font-roboto: var(--font-roboto);
   --font-shrikhand: var(--font-shrikhand);
   --font-poppins: var(--font-poppins);
@@ -61,11 +61,6 @@ body {
   animation-name: fadeInRightSoft;
 }
 
-
-/* Dark mode (default) */
-[data-theme="dark"] {
-  --background: #181818;
-}
 
 /* Light mode */
 [data-theme="light"] {

@@ -1,16 +1,14 @@
 "use client";
 
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useTheme } from "@/contexts/ThemeContext";
 import Navigation from "./Navigation";
 import TopToolbar from "./TopToolbar";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,9 +42,7 @@ export default function Header() {
             <Image
               src={
                 isSticky
-                  ? theme === "light"
-                    ? "/images/amedida-logo-noir.png"
-                    : "/images/amedida-logo-blanc.png"
+                  ? "/images/amedida-logo-noir.png"
                   : "/images/amedida-logo-blanc.png"
               }
               alt="AMEDIDA Logo"
@@ -59,32 +55,11 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:block">
-          <Navigation isSticky={isSticky} theme={theme} />
+          <Navigation isSticky={isSticky} />
         </div>
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-3">
-          {theme === "dark" ? (
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className="cursor-pointer text-white hover:text-[#df986c] transition-colors p-2"
-              aria-label="Switch to light mode"
-            >
-              <Sun className="w-5 h-5" />
-            </button>
-          ) : (
-            <button
-              type="button"
-              onClick={toggleTheme}
-              className={`cursor-pointer ${
-                isSticky ? "text-black" : "text-white"
-              } hover:text-[#df986c] transition-colors p-2`}
-              aria-label="Switch to dark mode"
-            >
-              <Moon className="w-5 h-5" />
-            </button>
-          )}
           <button
             type="button"
             className="cursor-pointer bg-black text-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-poppins hover:bg-[#df986c] transition-colors"
@@ -96,7 +71,7 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <button
           type="button"
-          className="md:hidden text-white p-2"
+          className={`md:hidden p-2 ${isSticky ? "text-black" : "text-white"}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -110,33 +85,14 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden mt-4 pb-4 border-t border-white/20">
+        <div
+          className={`md:hidden mt-4 pb-4 border-t ${
+            isSticky ? "border-black/20" : "border-white/20"
+          }`}
+        >
           <div className="pt-4 space-y-4">
-            <Navigation isSticky={isSticky} theme={theme} />
+            <Navigation isSticky={isSticky} />
             <div className="flex items-center justify-between pt-4">
-              <div className="flex items-center gap-3">
-                {theme === "dark" ? (
-                  <button
-                    type="button"
-                    onClick={toggleTheme}
-                    className="cursor-pointer text-white hover:text-[#df986c] transition-colors p-2"
-                    aria-label="Switch to light mode"
-                  >
-                    <Sun className="w-5 h-5" />
-                  </button>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={toggleTheme}
-                    className={`cursor-pointer ${
-                      isSticky ? "text-black" : "text-white"
-                    } hover:text-[#df986c] transition-colors p-2`}
-                    aria-label="Switch to dark mode"
-                  >
-                    <Moon className="w-5 h-5" />
-                  </button>
-                )}
-              </div>
               <button
                 type="button"
                 className="cursor-pointer bg-black text-white px-4 py-2 rounded-full text-sm font-poppins hover:bg-[#df986c] transition-colors"
@@ -160,16 +116,12 @@ export default function Header() {
       {isSticky && (
         <>
           <div
-            className={`fixed top-0 left-1/2 -translate-x-1/2 z-50 w-full max-w-[1260px] px-2 sm:px-4 pt-[40px] pb-4 sm:pb-6 ${
-              theme === "light" ? "bg-[#EFEEF1]" : "bg-[#181818]"
-            }`}
+            className="fixed top-0 left-1/2 -translate-x-1/2 z-50 w-full max-w-[1260px] px-2 sm:px-4 pt-[40px] pb-4 sm:pb-6 bg-[#EFEEF1]"
           >
             <TopToolbar isSticky />
           </div>
           <header
-            className={`fixed top-[90px] left-1/2 -translate-x-1/2 z-50 w-full max-w-[1260px] px-2 sm:px-4 rounded-t-[12px] ${
-              theme === "light" ? "bg-white" : "bg-black"
-            }`}
+            className="fixed top-[90px] left-1/2 -translate-x-1/2 z-50 w-full max-w-[1260px] px-2 sm:px-4 rounded-t-[12px] bg-white"
           >
             {renderHeaderContent()}
           </header>

@@ -1,4 +1,4 @@
-export default function Navigation({ isSticky = false, theme = "dark" }) {
+export default function Navigation({ isSticky = false }) {
   const navItems = [
     { label: "Présentation", href: "#presentation" },
     { label: "Evènements", href: "#evenements" },
@@ -14,9 +14,7 @@ export default function Navigation({ isSticky = false, theme = "dark" }) {
             <a
               key={item.label}
               href={item.href}
-              className={`text-xs sm:text-sm font-poppins hover:text-[#df986c] transition-colors whitespace-nowrap ${
-                theme === "light" ? "text-black" : "text-white"
-              }`}
+              className="text-xs sm:text-sm font-poppins text-black hover:text-[#df986c] transition-colors whitespace-nowrap"
             >
               {item.label}
             </a>

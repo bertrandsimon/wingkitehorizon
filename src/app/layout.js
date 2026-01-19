@@ -22,8 +22,9 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "AMEDIDA - Voyages de récompense sur mesure",
-  description: "Fabrique de magie événementielle dédiée au tourisme d'affaires",
+  title: "Wing Kite Horizon",
+  description:
+    "Wing Kite Horizon - école et expériences de wingfoil et kitesurf.",
 };
 
 export default function RootLayout({ children }) {

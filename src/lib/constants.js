@@ -23,5 +23,5 @@ export const images = {
 // Contact information
 export const contactInfo = {
   phone: "(33) 2 85 52 60 29",
-  email: "evenement@amedida.fr",
+  email: "contact@wingkitehorizon.com",
 };
