@@ -1,64 +1,30 @@
 "use client";
 
-import Image from "next/image";
-
 export default function Footer() {
-  const instagramIcon =
-    "http://localhost:3845/assets/8c02d6d8b3e43217c1f1ffb7ca5dfafa89717d95.svg";
-  const facebookIcon =
-    "http://localhost:3845/assets/9d5366ef46b0836db31142f4d0b380cea6ddb3b9.svg";
+  const navItems = [
+    { label: "Le concept", href: "#le-concept" },
+    { label: "Kite trips", href: "#kite-trips" },
+    { label: "Coaching", href: "#coaching" },
+  ];
 
   return (
-    <footer className="w-full bg-black rounded-b-[12px] py-8 sm:py-12 lg:py-16">
+    <footer className="mt-10 w-full bg-[#102F77] rounded-b-[12px] py-8 sm:py-12 lg:py-16">
       <div className="container max-w-[1200px] mx-auto px-4">
         <div className="flex flex-col lg:flex-row flex-wrap justify-between gap-6 sm:gap-8">
-          {/* Menu 1 Column */}
-          <div className="flex flex-col w-full sm:w-auto">
-            <h3 className="text-white text-sm sm:text-base font-poppins mb-3 sm:mb-4">
-              Menu 1
-            </h3>
-            <ul className="flex flex-col gap-2 sm:gap-3">
-              <li className="text-[#9d9d9d] text-xs sm:text-sm font-poppins">
-                Menu 1
-              </li>
-              <li className="text-[#9d9d9d] text-xs sm:text-sm font-poppins">
-                Menu 2
-              </li>
-              <li className="text-[#9d9d9d] text-xs sm:text-sm font-poppins">
-                Menu 3
-              </li>
-              <li className="text-[#9d9d9d] text-xs sm:text-sm font-poppins">
-                Menu4
-              </li>
-              <li className="text-[#9d9d9d] text-xs sm:text-sm font-poppins">
-                Menu 5
-              </li>
-            </ul>
-          </div>
-
-          {/* Menu 2 Column */}
-          <div className="flex flex-col w-full sm:w-auto">
-            <h3 className="text-white text-sm sm:text-base font-poppins mb-3 sm:mb-4">
-              Menu 2
-            </h3>
-            <ul className="flex flex-col gap-2 sm:gap-3">
-              <li className="text-[#9d9d9d] text-xs sm:text-sm font-poppins">
-                Menu 1
-              </li>
-              <li className="text-[#9d9d9d] text-xs sm:text-sm font-poppins">
-                Menu 2
-              </li>
-              <li className="text-[#9d9d9d] text-xs sm:text-sm font-poppins">
-                Menu 3
-              </li>
-              <li className="text-[#9d9d9d] text-xs sm:text-sm font-poppins">
-                Menu4
-              </li>
-              <li className="text-[#9d9d9d] text-xs sm:text-sm font-poppins">
-                Menu 5
-              </li>
-            </ul>
-          </div>
+          {/* Footer Navigation */}
+          <nav className="w-full lg:w-auto">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 lg:gap-6">
+              {navItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-sm sm:text-base text-white font-poppins transition-colors whitespace-nowrap px-3 py-1 rounded-full hover:bg-[#55BAC6] hover:text-white"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </nav>
 
           {/* On vous rappelle Section */}
           <div className="flex flex-col w-full lg:w-auto lg:max-w-[379px]">
@@ -73,7 +39,7 @@ export default function Footer() {
               <input
                 type="tel"
                 placeholder="Téléphone"
-                className="bg-black border border-[#4e4e4e] rounded-[6px] h-[34px] px-3 text-white text-sm sm:text-base font-poppins focus:outline-none focus:border-[#DF986C] transition-colors w-full sm:w-[200px] lg:w-[270px]"
+                className="bg-white/10 border border-white/20 rounded-[6px] h-[34px] px-3 text-white placeholder-white/60 text-sm sm:text-base font-poppins focus:outline-none focus:border-[#55BAC6] transition-colors w-full sm:w-[200px] lg:w-[270px]"
               />
               <button
                 type="button"
@@ -86,27 +52,17 @@ export default function Footer() {
             <div className="flex gap-4 items-center">
               <a
                 href="/"
-                className="flex items-center justify-center w-[28px] h-[32px]"
+                className="flex items-center justify-center w-[28px] h-[32px] text-white/90 hover:text-white transition-colors"
+                aria-label="Instagram"
               >
-                <Image
-                  src={instagramIcon}
-                  alt="Instagram"
-                  width={28}
-                  height={32}
-                  className="object-contain"
-                />
+                <i className="fa-brands fa-instagram text-2xl" />
               </a>
               <a
                 href="/"
-                className="flex items-center justify-center w-[29px] h-[29px]"
+                className="flex items-center justify-center w-[29px] h-[29px] text-white/90 hover:text-white transition-colors"
+                aria-label="Facebook"
               >
-                <Image
-                  src={facebookIcon}
-                  alt="Facebook"
-                  width={29}
-                  height={29}
-                  className="object-contain"
-                />
+                <i className="fa-brands fa-facebook text-2xl" />
               </a>
             </div>
           </div>
@@ -115,7 +71,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-[#4e4e4e]">
           <p className="text-white text-xs sm:text-sm lg:text-base font-poppins text-center">
-            2026 Amedia. Droits réservés
+            2026 Wing Kite Horizon. Droits réservés
           </p>
         </div>
       </div>

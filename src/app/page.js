@@ -1,5 +1,6 @@
 "use client";
 
+import Banner from "@/components/Banner/Banner";
 import Editorial from "@/components/Editorial/Editorial";
 import Favorites from "@/components/Favorites/Favorites";
 import Footer from "@/components/Footer/Footer";
@@ -28,6 +29,7 @@ export default function Home() {
           <TestimonialCarousel />
           <Favorites />
           <Editorial />
+          <Banner />
         </div>
         <Footer />
       </div>

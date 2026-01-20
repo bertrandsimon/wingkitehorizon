@@ -30,6 +30,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          referrerPolicy="no-referrer"
+        />
+      </head>
       <body
         className={`${roboto.variable} ${shrikhand.variable} ${poppins.variable} antialiased min-h-screen`}
       >

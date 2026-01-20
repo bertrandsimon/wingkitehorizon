@@ -40,7 +40,11 @@ export default function Header() {
             style={{ overflow: "hidden" }}
           >
             <Image
-              src="/images/logo-wingkite-horizon.png"
+              src={
+                isSticky
+                  ? "/images/logo-wingkite-horizon-black.png"
+                  : "/images/logo-wingkite-horizon.png"
+              }
               alt="Wing Kite Horizon Logo"
               className="object-contain"
               width={148}
