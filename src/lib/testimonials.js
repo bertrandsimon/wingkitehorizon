@@ -1,26 +1,24 @@
-import { images } from "./constants";
-
 // Testimonials data
 export const testimonials = [
   {
     id: 1,
-    name: "Melissa C.",
-    role: "Manager",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu lectus venenatis, congue erat eu, condimentum lorem. Etiam a tortor eros. Nulla id dui quis nisi feugiat molestie ac eget risus. Vivamus finibus, justo eget rutrum, get ris?",
-    photo: "/images/testimonial.jpg",
+    name: "Camille R.",
+    role: "Kitesurf (intermédiaire)",
+    text: "Super expérience : coach très pédagogue, spots choisis au bon moment et ambiance à bord au top. En 5 jours j’ai débloqué mes transitions et gagné en confiance.",
+    photo: "/images/avatar1.jpg",
   },
   {
     id: 2,
-    name: "John D.",
-    role: "Director",
-    text: "Another testimonial text here. This is a sample testimonial to demonstrate the carousel functionality. The content can be updated as needed.",
-    photo: "/images/testimonial.jpg",
+    name: "Marion M.",
+    role: "Wingfoil (débutant)",
+    text: "Je partais de zéro en wing : matériel adapté, briefings clairs, retours vidéo… La progression est rapide et on navigue beaucoup. Le format croisière est juste parfait.",
+    photo: "/images/avatar2.jpg",
   },
   {
     id: 3,
-    name: "Sarah M.",
-    role: "CEO",
-    text: "Third testimonial example. This shows how the carousel cycles through different testimonials when the arrows are clicked.",
-    photo: "/images/testimonial.jpg",
+    name: "Greg T.",
+    role: "Kite & Wing",
+    text: "Entre les sessions, les navigations et la vie sur le catamaran, tout est fluide. Chaque jour un nouveau spot, et un coaching vraiment personnalisé. Je recommande à 100%.",
+    photo: "/images/avatar3.jpg",
   },
 ];

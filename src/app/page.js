@@ -1,6 +1,7 @@
 "use client";
 
 import Banner from "@/components/Banner/Banner";
+import BoatZone from "@/components/BoatZone/BoatZone";
 import Editorial from "@/components/Editorial/Editorial";
 import Favorites from "@/components/Favorites/Favorites";
 import Footer from "@/components/Footer/Footer";
@@ -21,12 +22,18 @@ export default function Home() {
       <div className="mb-30 rounded-[12px] w-full max-w-[1260px] mx-auto transition-colors duration-300 bg-white">
         <div className="p-3 sm:p-5">
           <HeroSection />
-          <div className="-mt-20 sm:-mt-40">
+          {/* <div className="-mt-20 sm:-mt-40">
             <ThematicSection />
+          </div> */}
+
+          <div className="relative z-[10]">
+            <Presentation />
           </div>
-          <Presentation />
+          <div className="relative z-[0] -mt-24">
+            <BoatZone />
+          </div>
           <PhotoNav />
-          <TestimonialCarousel />
+
           <Favorites />
           <Editorial />
           <Banner />

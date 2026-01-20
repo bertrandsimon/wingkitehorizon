@@ -15,9 +15,11 @@ export default function TestimonialCarousel() {
   const currentTestimonial = testimonials[currentIndex];
   const { theme } = useTheme();
   const textColor = theme === "light" ? "text-black" : "text-white";
-  const secondaryTextColor = theme === "light" ? "text-gray-600" : "text-[#9ea0a9]";
+  const secondaryTextColor =
+    theme === "light" ? "text-gray-600" : "text-[#9ea0a9]";
   const arrowColor = theme === "light" ? "text-gray-400" : "text-white/50";
-  const arrowHoverColor = theme === "light" ? "hover:text-gray-600" : "hover:text-white";
+  const arrowHoverColor =
+    theme === "light" ? "hover:text-gray-600" : "hover:text-white";
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -34,47 +36,54 @@ export default function TestimonialCarousel() {
       <div className="container max-w-[1000px] px-4">
         <div className="w-full">
           <div className="px-4 sm:px-6 lg:px-10">
-            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-              <div className="flex flex-col flex-shrink-0 w-full sm:w-auto">
-                <div className="flex items-start gap-3 sm:gap-4 pr-0 sm:pr-10 lg:pr-20">
-                  <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden flex-shrink-0">
-                    <Image
-                      src={currentTestimonial.photo}
-                      alt={currentTestimonial.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className={`${textColor} font-semibold font-poppins text-sm sm:text-base`}>
-                      {currentTestimonial.name}
-                    </p>
-                    <p className={`${secondaryTextColor} text-xs sm:text-sm font-poppins`}>
-                      {currentTestimonial.role}
-                    </p>
-                  </div>
+            <div className="flex flex-col gap-4">
+              {/* Top row: avatar + name + role */}
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden flex-shrink-0">
+                  <Image
+                    src={currentTestimonial.photo}
+                    alt={currentTestimonial.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <div className="mt-3 sm:mt-4 flex gap-2">
-                  <button
-                    onClick={prevTestimonial}
-                    className={`${arrowColor} ${arrowHoverColor} transition-colors cursor-pointer`}
-                    aria-label="Previous testimonial"
+                <div className="min-w-0">
+                  <p
+                    className={`${textColor} font-semibold font-poppins text-sm sm:text-base`}
                   >
-                    <ArrowLongLeftIcon className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={nextTestimonial}
-                    className={`${arrowColor} ${arrowHoverColor} transition-colors cursor-pointer`}
-                    aria-label="Next testimonial"
+                    {currentTestimonial.name}
+                  </p>
+                  <p
+                    className={`${secondaryTextColor} text-xs sm:text-sm font-poppins`}
                   >
-                    <ArrowLongRightIcon className="w-4 h-4" />
-                  </button>
+                    {currentTestimonial.role}
+                  </p>
                 </div>
               </div>
-              <div className="flex-1 flex items-start sm:items-center">
-                <p className={`${textColor} text-sm sm:text-base lg:text-lg font-poppins italic leading-relaxed`}>
-                  "{currentTestimonial.text}"
-                </p>
+
+              {/* Testimonial text */}
+              <p
+                className={`${textColor} text-sm font-poppins italic leading-relaxed`}
+              >
+                "{currentTestimonial.text}"
+              </p>
+
+              {/* Arrows below */}
+              <div className="flex gap-2">
+                <button
+                  onClick={prevTestimonial}
+                  className={`${arrowColor} ${arrowHoverColor} transition-colors cursor-pointer`}
+                  aria-label="Previous testimonial"
+                >
+                  <ArrowLongLeftIcon className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={nextTestimonial}
+                  className={`${arrowColor} ${arrowHoverColor} transition-colors cursor-pointer`}
+                  aria-label="Next testimonial"
+                >
+                  <ArrowLongRightIcon className="w-4 h-4" />
+                </button>
               </div>
             </div>
           </div>

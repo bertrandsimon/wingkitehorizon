@@ -85,3 +85,12 @@ body {
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
+
+/* Hide horizontal scrollbar (carousel) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

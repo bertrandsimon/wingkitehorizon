@@ -32,8 +32,9 @@ export default function Footer() {
               On vous rappelle
             </h3>
             <p className="text-[#c2c2c2] text-xs sm:text-sm font-poppins font-light mb-4">
-              Ornare arcu gravida natoque erat et cursus, ornare arcu gravida
-              natoque erat et cursu.
+              Un membre de l’équipe vous contacte pour répondre à vos questions,
+              vérifier votre niveau en kitesurf et vous présenter les prochaines
+              dates disponibles.
             </p>
             <div className="flex flex-col sm:flex-row gap-2 mb-6">
               <input

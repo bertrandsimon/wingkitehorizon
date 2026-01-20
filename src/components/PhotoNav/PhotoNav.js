@@ -1,152 +1,125 @@
 "use client";
 
-import { useTheme } from "@/contexts/ThemeContext";
+import Image from "next/image";
 import Title from "@/components/Title/Title";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function PhotoNav({
-  title = "Le plus court chemin",
-  subtitle = "vers le bout du monde",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  title = "Le plus beau détour",
+  subtitle = "vers le dépaysement",
+  description = "Naviguez en Grèce, entre eaux turquoise et criques sauvages. Kite, wing et coaching sur-mesure pour progresser, explorer et vivre la vie locale.",
+  bodyText = "Cap sur la Grèce pour une parenthèse hors du temps : mouillages idylliques, villages blancs, tavernes au bord de l’eau et sessions quotidiennes dans des spots choisis selon le vent. Que vous veniez pour apprendre ou pour vous perfectionner, on vous accompagne en kite et en wing avec un coaching adapté à votre niveau. Entre navigation, découverte des paysages et immersion locale, chaque journée est un mix parfait d’aventure, de glisse et de douceur de vivre.",
 }) {
   const { theme } = useTheme();
   // Text on photos should be white in light mode
   const textColor = theme === "light" ? "text-white" : "text-white";
+  const paragraphColor = theme === "light" ? "text-[#777f94]" : "text-white/70";
 
-  const photoItems = [
-    {
-      id: 1,
-      image:
-        "http://localhost:3845/assets/91687f06eea91ae06600507417a9c26e6b205d82.png",
-      width: "598px",
-      height: "317px",
-      title: "Bromo",
-      subtitle: "Indonésie",
+  // Export these 3 images from Figma to /public/images as JPG:
+  // - photonav1.jpg (top)
+  // - photonav2.jpg (bottom-left)
+  // - photonav3.jpg (bottom-right)
+  const images = {
+    top: "/images/photonav1.jpg",
+    bottomLeft: "/images/photonav2.jpg",
+    bottomRight: "/images/photonav3.jpg",
+  };
+
+  const captions = {
+    top: { line1: "Naviguer en Grèce", line2: "Entre îles & lagons" },
+    bottomLeft: { line1: "Dépaysement total", line2: "Paysages magnifiques" },
+    bottomRight: {
+      line1: "Kite & Wing",
+      line2: "Apprendre & se faire coacher",
     },
-    {
-      id: 2,
-      image:
-        "http://localhost:3845/assets/4c7be0da65259486a5753f3f2f543f9b9c54a0f2.png",
-      width: "377px",
-      height: "317px",
-      title: "Bromo",
-      subtitle: "Indonésie",
-    },
-    {
-      id: 3,
-      image:
-        "http://localhost:3845/assets/a34fd127f9df0681e3e1898dfdf3f78b2da33ded.png",
-      width: "379px",
-      height: "317px",
-      title: "Bromo",
-      subtitle: "Indonésie",
-    },
-    {
-      id: 4,
-      image:
-        "http://localhost:3845/assets/babc473d572c2b698dd4456f8256e9b6a305008a.png",
-      width: "602px",
-      height: "317px",
-      title: "Bromo",
-      subtitle: "Indonésie",
-    },
-  ];
+  };
 
   return (
     <>
-      <Title title1={title} title2={subtitle} description={description} />
+      <Title
+        title1={title}
+        title2={subtitle}
+        description={description}
+        title2ClassName="font-poppins text-[#55BAC6] text-xl sm:text-2xl lg:text-3xl"
+      />
       <div className="w-full pb-8 sm:pb-12 lg:pb-30 flex justify-center">
         <div className="flex flex-col gap-3 sm:gap-4 w-full max-w-[1200px] px-4">
-          {/* Top row */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
-            <div
-              className="relative rounded-[12px] overflow-hidden flex-1 h-[200px] sm:h-[250px] lg:h-[317px]"
-              style={{
-                backgroundImage: photoItems[0].image
-                  ? `url(${photoItems[0].image})`
-                  : "rgba(0, 0, 0, 0.05)",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
-              <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 flex items-start justify-start">
-                <div className="flex flex-col">
-                  <p className={`${textColor} text-xs sm:text-sm font-medium`}>
-                    {photoItems[0].title}
-                  </p>
-                  <p className={`${textColor} text-base sm:text-xl font-bold`}>
-                    {photoItems[0].subtitle}
-                  </p>
-                </div>
+          {/* Top row (image + paragraph) */}
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-14 w-full items-start">
+            <div className="relative w-full lg:w-[598px] h-[220px] sm:h-[280px] lg:h-[317px] rounded-[12px] overflow-hidden shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]">
+              <Image
+                src={images.top}
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 598px"
+                className="object-cover"
+                priority={false}
+              />
+              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-10">
+                <p
+                  className={`${textColor} font-poppins font-light text-base sm:text-lg leading-tight`}
+                >
+                  {captions.top.line1}
+                </p>
+                <p
+                  className={`${textColor} font-poppins font-semibold text-lg sm:text-xl leading-tight`}
+                >
+                  {captions.top.line2}
+                </p>
               </div>
             </div>
-            <div
-              className="relative rounded-[12px] overflow-hidden flex-[0.63] sm:flex-[0.63] h-[200px] sm:h-[250px] lg:h-[317px]"
-              style={{
-                backgroundImage: photoItems[1].image
-                  ? `url(${photoItems[1].image})`
-                  : "rgba(0, 0, 0, 0.05)",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
+
+            <p
+              className={`${paragraphColor} font-poppins text-[14px] leading-[1.92] w-full lg:w-[519px]`}
             >
-              <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 flex items-start justify-start">
-                <div className="flex flex-col">
-                  <p className={`${textColor} text-xs sm:text-sm font-medium`}>
-                    {photoItems[1].title}
-                  </p>
-                  <p className={`${textColor} text-base sm:text-xl font-bold`}>
-                    {photoItems[1].subtitle}
-                  </p>
-                </div>
-              </div>
-            </div>
+              {bodyText}
+            </p>
           </div>
-          {/* Bottom row */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
-            <div
-              className="relative rounded-[12px] overflow-hidden flex-[0.63] sm:flex-[0.63] h-[200px] sm:h-[250px] lg:h-[317px]"
-              style={{
-                backgroundImage: photoItems[2].image
-                  ? `url(${photoItems[2].image})`
-                  : "rgba(0, 0, 0, 0.08)",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
-              <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 flex items-start justify-start">
-                <div className="flex flex-col">
-                  <p className={`${textColor} text-xs sm:text-sm font-medium`}>
-                    {photoItems[2].title}
-                  </p>
-                  <p className={`${textColor} text-base sm:text-xl font-bold`}>
-                    {photoItems[2].subtitle}
-                  </p>
-                </div>
+
+          {/* Bottom row (2 images) */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-[13px] w-full items-center">
+            <div className="relative w-full sm:w-[379px] h-[220px] sm:h-[317px] rounded-[12px] overflow-hidden">
+              <Image
+                src={images.bottomLeft}
+                alt=""
+                fill
+                sizes="(max-width: 640px) 100vw, 379px"
+                className="object-cover"
+              />
+              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-8">
+                <p
+                  className={`${textColor} font-poppins font-light text-base sm:text-lg leading-tight`}
+                >
+                  {captions.bottomLeft.line1}
+                </p>
+                <p
+                  className={`${textColor} font-poppins font-semibold text-lg sm:text-xl leading-tight`}
+                >
+                  {captions.bottomLeft.line2}
+                </p>
               </div>
             </div>
-            <div
-              className="relative rounded-[12px] overflow-hidden flex-1 h-[200px] sm:h-[250px] lg:h-[317px]"
-              style={{
-                backgroundImage: photoItems[3].image
-                  ? `url(${photoItems[3].image})`
-                  : "rgba(0, 0, 0, 0.05)",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
-              <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 flex items-start justify-start">
-                <div className="flex flex-col">
-                  <p className={`${textColor} text-xs sm:text-sm font-medium`}>
-                    {photoItems[3].title}
-                  </p>
-                  <p className={`${textColor} text-base sm:text-xl font-bold`}>
-                    {photoItems[3].subtitle}
-                  </p>
-                </div>
+
+            <div className="relative w-full sm:flex-1 sm:min-w-0 h-[220px] sm:h-[317px] rounded-[12px] overflow-hidden">
+              <Image
+                src={images.bottomRight}
+                alt=""
+                fill
+                sizes="(max-width: 640px) 100vw, 798px"
+                className="object-cover"
+                style={{ objectPosition: "center 25%" }}
+              />
+              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-8">
+                <p
+                  className={`${textColor} font-poppins font-light text-base sm:text-lg leading-tight`}
+                >
+                  {captions.bottomRight.line1}
+                </p>
+                <p
+                  className={`${textColor} font-poppins font-semibold text-lg sm:text-xl leading-tight`}
+                >
+                  {captions.bottomRight.line2}
+                </p>
               </div>
             </div>
           </div>

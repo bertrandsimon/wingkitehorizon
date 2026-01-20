@@ -5,74 +5,48 @@ import {
   ArrowLongRightIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { themes } from "@/lib/themes";
 import ThemeCard from "./ThemeCard";
 
 export default function ThematicSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  // Responsive: 1 card on mobile, 2 on tablet, 4 on desktop
-  const [visibleCards, setVisibleCards] = useState(4);
-
-  useEffect(() => {
-    const updateVisibleCards = () => {
-      if (window.innerWidth < 640) {
-        setVisibleCards(1);
-      } else if (window.innerWidth < 1024) {
-        setVisibleCards(2);
-      } else {
-        setVisibleCards(4);
-      }
-    };
-
-    updateVisibleCards();
-    window.addEventListener("resize", updateVisibleCards);
-    return () => window.removeEventListener("resize", updateVisibleCards);
-  }, []);
-
-  // Calculate how many groups we have
-  const totalGroups = Math.ceil(themes.length / visibleCards);
-  const maxGroupIndex = totalGroups - 1;
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => {
-      const nextGroup = prev + 1;
-      return nextGroup > maxGroupIndex ? 0 : nextGroup;
-    });
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => {
-      const prevGroup = prev - 1;
-      return prevGroup < 0 ? maxGroupIndex : prevGroup;
-    });
-  };
-
-  // Auto-rotate carousel
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => {
-        const nextGroup = prev + 1;
-        return nextGroup > maxGroupIndex ? 0 : nextGroup;
-      });
-    }, 5000); // Rotate every 5 seconds
-
-    return () => clearInterval(interval);
-  }, [maxGroupIndex]);
+  const trackRef = useRef(null);
 
   const { theme } = useTheme();
   // Keep "une thematique inspirante" white in light mode (over imagery)
   const textColor = "text-white";
   const arrowColor = theme === "light" ? "text-black" : "text-white";
 
-  const cardWidth = 210;
-  const gap = 30;
-  const containerWidth = visibleCards === 1 
-    ? cardWidth 
-    : visibleCards === 2 
-    ? cardWidth * 2 + gap 
-    : cardWidth * 4 + gap * 3;
+  const scrollByOneCard = useCallback((direction) => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    const firstCard = track.querySelector("[data-theme-card]");
+    const gapPx = 16; // matches gap-4 on the flex container
+    const cardWidth = firstCard ? firstCard.getBoundingClientRect().width : 0;
+    const delta = (cardWidth || 0) + gapPx;
+
+    const nextLeft = direction === "left" ? -delta : delta;
+    const maxLeft = track.scrollWidth - track.clientWidth;
+
+    if (direction === "right" && track.scrollLeft >= maxLeft - 4) {
+      track.scrollTo({ left: 0, behavior: "smooth" });
+      return;
+    }
+    if (direction === "left" && track.scrollLeft <= 4) {
+      track.scrollTo({ left: maxLeft, behavior: "smooth" });
+      return;
+    }
+
+    track.scrollBy({ left: nextLeft, behavior: "smooth" });
+  }, []);
+
+  // Auto-rotate carousel
+  useEffect(() => {
+    const interval = setInterval(() => scrollByOneCard("right"), 5000);
+    return () => clearInterval(interval);
+  }, [scrollByOneCard]);
 
   return (
     <section className="w-full py-8 sm:py-12 lg:py-16 relative z-20">
@@ -97,38 +71,41 @@ export default function ThematicSection() {
             {/* Left Arrow */}
             <button
               type="button"
-              onClick={prevSlide}
-              className={`hidden sm:flex cursor-pointer z-10 p-2 ${arrowColor} hover:text-[#df986c] transition-colors items-center h-full mr-2 sm:mr-4 lg:mr-[30px]`}
+              onClick={() => scrollByOneCard("left")}
+              className={`flex cursor-pointer z-20 p-2 ${arrowColor} hover:text-[#df986c] transition-colors items-center h-full mr-2 sm:mr-4`}
               aria-label="Previous"
             >
               <ArrowLongLeftIcon className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
             {/* Carousel Container */}
-            <div 
-              className="overflow-hidden mx-auto w-full sm:w-auto"
-              style={{ maxWidth: `${containerWidth}px` }}
-            >
-              <div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{
-                  gap: `${gap}px`,
-                  transform: `translateX(-${currentIndex * (visibleCards * (cardWidth + gap))}px)`,
-                }}
+            <div className="relative w-full overflow-hidden">
+              {/* Side gradients */}
+              <div className="pointer-events-none absolute left-0 top-0 h-full w-10 sm:w-16 bg-gradient-to-r from-white/90 to-transparent z-10" />
+              <div className="pointer-events-none absolute right-0 top-0 h-full w-10 sm:w-16 bg-gradient-to-l from-white/90 to-transparent z-10" />
+
+              <section
+                ref={trackRef}
+                className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar px-2"
+                aria-label="Thématiques"
               >
-                {themes.map((theme) => (
-                  <div key={theme.id} className="flex-shrink-0">
-                    <ThemeCard theme={theme} />
+                {themes.map((t) => (
+                  <div
+                    key={t.id}
+                    data-theme-card
+                    className="flex-shrink-0 snap-start"
+                  >
+                    <ThemeCard theme={t} />
                   </div>
                 ))}
-              </div>
+              </section>
             </div>
 
             {/* Right Arrow */}
             <button
               type="button"
-              onClick={nextSlide}
-              className={`hidden sm:flex cursor-pointer z-10 p-2 ${arrowColor} hover:text-[#df986c] transition-colors items-center h-full ml-2 sm:ml-4 lg:ml-[30px]`}
+              onClick={() => scrollByOneCard("right")}
+              className={`flex cursor-pointer z-20 p-2 ${arrowColor} hover:text-[#df986c] transition-colors items-center h-full ml-2 sm:ml-4`}
               aria-label="Next"
             >
               <ArrowLongRightIcon className="w-5 h-5 sm:w-6 sm:h-6" />
