@@ -49,7 +49,7 @@ export default function TestimonialCarousel() {
                 </div>
                 <div className="min-w-0">
                   <p
-                    className={`${textColor} font-semibold font-poppins text-sm sm:text-base`}
+                    className={`${textColor} font-semibold font-poppins text-sm sm:text-sm`}
                   >
                     {currentTestimonial.name}
                   </p>

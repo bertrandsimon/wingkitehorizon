@@ -53,7 +53,7 @@ export default function ThematicSection() {
       <div className="container max-w-[1200px] px-4">
         <div className="w-full">
           <div className="flex items-center justify-end mb-4 sm:mb-6 relative z-20 pr-0 sm:pr-10 lg:pr-40">
-            <div className={`${textColor} text-sm sm:text-base lg:text-lg relative z-20 font-poppins`}>
+            <div className={`${textColor} text-sm sm:text-sm lg:text-lg relative z-20 font-poppins`}>
               une <span>thématique</span>{" "}
               <span className="font-display ">inspirante</span> ?
             </div>

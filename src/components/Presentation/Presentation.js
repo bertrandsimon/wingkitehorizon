@@ -16,7 +16,7 @@ export default function Presentation() {
         <div className="flex flex-col">
           <div className="mb-6">
             <div className="inline-flex items-center justify-center rounded-[1000px] bg-[#55BAC6] w-[135px] h-[26px]">
-              <span className="text-white font-poppins text-base font-semibold leading-[103%] uppercase">
+              <span className="text-white font-poppins text-sm font-semibold leading-[103%] uppercase">
                 Coaching
               </span>
             </div>
@@ -29,7 +29,7 @@ export default function Presentation() {
               <span className="text-[#102F77]">Apprendre</span>{" "}
               <span className="text-[#55BAC6]">Voyager</span>
             </p>
-            <p className="mt-3 text-[#777F94] font-poppins text-sm font-normal leading-[192%]">
+            <p className="mt-3 text-gray-600 font-poppins text-sm font-normal leading-[192%]">
               <span className="block">
                 Progressez rapidement, quel que soit
               </span>
@@ -61,7 +61,7 @@ export default function Presentation() {
 
           <button
             type="button"
-            className="mt-6 inline-flex items-center justify-center rounded-full bg-[#55BAC6] px-6 py-3 text-sm sm:text-base font-poppins text-white transition-colors hover:bg-[#49a9b3] cursor-pointer"
+            className="mt-6 inline-flex items-center justify-center rounded-full bg-[#55BAC6] px-6 py-3 text-sm sm:text-sm font-poppins text-white transition-colors hover:bg-[#49a9b3] cursor-pointer"
           >
             En savoir plus
           </button>

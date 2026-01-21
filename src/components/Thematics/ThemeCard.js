@@ -22,7 +22,7 @@ export default function ThemeCard({ theme }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
         <div className="absolute bottom-5 left-5 right-5">
-          <p className="text-white font-poppins font-light text-base sm:text-lg leading-tight">
+          <p className="text-white font-poppins font-light text-sm sm:text-lg leading-tight">
             {theme.subtitle}
           </p>
           <p className="text-white font-poppins font-semibold text-lg sm:text-2xl leading-tight">

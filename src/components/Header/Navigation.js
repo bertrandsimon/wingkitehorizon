@@ -13,7 +13,7 @@ export default function Navigation({ isSticky = false }) {
             <a
               key={item.label}
               href={item.href}
-              className="text-sm sm:text-base font-poppins text-black transition-colors whitespace-nowrap px-3 py-1 rounded-full hover:bg-[#55BAC6] hover:text-white"
+              className="text-sm sm:text-sm font-poppins text-black transition-colors whitespace-nowrap px-3 py-1 rounded-full hover:bg-[#55BAC6] hover:text-white"
             >
               {item.label}
             </a>
@@ -26,7 +26,7 @@ export default function Navigation({ isSticky = false }) {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm sm:text-base text-white font-poppins transition-colors whitespace-nowrap px-3 py-1 rounded-full hover:bg-[#55BAC6] hover:text-white"
+                className="text-sm sm:text-sm text-white font-poppins transition-colors whitespace-nowrap px-3 py-1 rounded-full hover:bg-[#55BAC6] hover:text-white"
               >
                 {item.label}
               </a>

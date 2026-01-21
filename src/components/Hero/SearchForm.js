@@ -9,7 +9,7 @@ export default function SearchForm() {
         {/* Période */}
         <div className="flex items-center gap-2 sm:gap-3 border-b sm:border-b-0 sm:border-r border-white/80 pb-2 sm:pb-0 pr-0 sm:pr-3 lg:pr-4 pl-2 sm:pl-3 lg:pl-4">
           <CalendarDays className="w-4 h-4 sm:w-5 sm:h-5 lg:w-[20px] lg:h-[20px] text-white flex-shrink-0" />
-          <select className="bg-transparent text-white placeholder-white/50 focus:outline-none transition-colors py-2 text-sm sm:text-base w-full sm:min-w-[100px] lg:min-w-[120px]">
+          <select className="bg-transparent text-white placeholder-white/50 focus:outline-none transition-colors py-2 text-sm sm:text-sm w-full sm:min-w-[100px] lg:min-w-[120px]">
             <option value="" className="bg-black">
               Période
             </option>
@@ -25,7 +25,7 @@ export default function SearchForm() {
         {/* Budget */}
         <div className="flex items-center gap-2 sm:gap-3 border-b sm:border-b-0 sm:border-r border-white/80 pb-2 sm:pb-0 pr-0 sm:pr-3 lg:pr-4 pl-2">
           <WalletCards className="w-4 h-4 sm:w-5 sm:h-5 lg:w-[20px] lg:h-[20px] text-white flex-shrink-0" />
-          <select className="bg-transparent text-white placeholder-white/50 focus:outline-none transition-colors py-2 text-sm sm:text-base w-full sm:min-w-[100px] lg:min-w-[120px]">
+          <select className="bg-transparent text-white placeholder-white/50 focus:outline-none transition-colors py-2 text-sm sm:text-sm w-full sm:min-w-[100px] lg:min-w-[120px]">
             <option value="" className="bg-black">
               Budget
             </option>
@@ -41,7 +41,7 @@ export default function SearchForm() {
         {/* Groupe */}
         <div className="flex items-center gap-2 sm:gap-3 border-b sm:border-b-0 sm:border-r border-white/80 pb-2 sm:pb-0 pr-0 sm:pr-3 lg:pr-4 pl-2">
           <Users className="w-4 h-4 sm:w-5 sm:h-5 lg:w-[20px] lg:h-[20px] text-white flex-shrink-0" />
-          <select className="bg-transparent text-white placeholder-white/50 focus:outline-none transition-colors py-2 text-sm sm:text-base w-full sm:min-w-[100px] lg:min-w-[120px]">
+          <select className="bg-transparent text-white placeholder-white/50 focus:outline-none transition-colors py-2 text-sm sm:text-sm w-full sm:min-w-[100px] lg:min-w-[120px]">
             <option value="" className="bg-black">
               Groupe
             </option>

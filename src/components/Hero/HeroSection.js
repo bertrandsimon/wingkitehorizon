@@ -13,8 +13,8 @@ import SearchForm from "./SearchForm";
 export default function HeroSection() {
   const slides = [
     "/images/slider1.jpg",
-    "/images/Rectangle 231.png",
-    "/images/Rectangle 232.png",
+    "/images/slider2.jpg",
+    "/images/slider3.jpg",
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
 

@@ -20,9 +20,7 @@ function FavoriteFlipCard({ item }) {
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] max-w-[250px] bg-white/10 backdrop-blur-md border-t border-white/20 rounded-xl flex items-start justify-start px-3 py-2">
             <div className="flex flex-col">
               <p className="text-white text-xs font-medium">Envie de</p>
-              <p className="text-white text-base font-bold">
-                {item.frontTitle}
-              </p>
+              <p className="text-white text-sm font-bold">{item.frontTitle}</p>
             </div>
           </div>
         </div>
@@ -50,42 +48,42 @@ export default function Favorites({
   const items = [
     {
       id: 1,
-      image: "/images/favorite-1.jpg",
+      image: "/images/card-1.jpg",
       frontTitle: "Coaching Kite ?",
       backKicker: "Découvrez",
       backTitle: "Coaching Kite",
     },
     {
       id: 2,
-      image: "/images/favorite-2.jpg",
+      image: "/images/card-2.jpg",
       frontTitle: "Coaching Wing ?",
       backKicker: "Explorez",
       backTitle: "Coaching Wing",
     },
     {
       id: 3,
-      image: "/images/favorite-3.jpg",
+      image: "/images/card-3.jpg",
       frontTitle: "Partir en couple ?",
       backKicker: "Vivez",
       backTitle: "Partir en couple",
     },
     {
       id: 4,
-      image: "/images/catamaran.jpg",
+      image: "/images/card-4.jpg",
       frontTitle: "Naviguer en Grèce ?",
       backKicker: "Cap sur",
       backTitle: "Les Cyclades",
     },
     {
       id: 5,
-      image: "/images/thematic-2.jpg",
+      image: "/images/card-5.jpg",
       frontTitle: "Spots secrets ?",
       backKicker: "Trouvez",
       backTitle: "Le bon spot",
     },
     {
       id: 6,
-      image: "/images/thematic-4.jpg",
+      image: "/images/card-6.jpg",
       frontTitle: "Vie locale ?",
       backKicker: "Goûtez",
       backTitle: "La Grèce vraie",
@@ -118,13 +116,14 @@ export default function Favorites({
   }, []);
 
   return (
-    <>
-      <Title
+    <section className="-mt-4 sm:-mt-6 lg:-mt-8">
+      {/* <Title
         title1={title}
         title2={subtitle}
         description={description}
         title2ClassName="font-poppins text-[#55BAC6] text-xl sm:text-2xl lg:text-3xl"
-      />
+        containerPaddingClassName="pt-0 pb-4 px-4 sm:pt-0 sm:pb-5 sm:px-6 lg:pt-0 lg:pb-6 lg:px-10"
+      /> */}
       <div className="w-full flex items-center justify-center">
         <div className="w-full max-w-[1200px] px-4">
           <div className="relative flex items-center justify-center">
@@ -165,6 +164,6 @@ export default function Favorites({
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 }

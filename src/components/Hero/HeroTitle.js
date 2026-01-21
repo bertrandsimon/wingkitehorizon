@@ -26,7 +26,7 @@ export default function HeroTitle() {
         </p>
         <div className="flex items-center justify-end">
           <p
-            className="text-sm sm:text-base lg:text-xl text-white text-right mb-0 mr-2 sm:mr-4 mt-4 animate__animated animate__fadeInUp"
+            className="text-sm sm:text-sm lg:text-xl text-white text-right mb-0 mr-2 sm:mr-4 mt-4 animate__animated animate__fadeInUp"
             style={{
               animationDelay: "0.7s",
               animationDuration: "1s",

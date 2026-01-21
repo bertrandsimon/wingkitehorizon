@@ -18,7 +18,7 @@ export default function Footer() {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="text-sm sm:text-base text-white font-poppins transition-colors whitespace-nowrap px-3 py-1 rounded-full hover:bg-[#55BAC6] hover:text-white"
+                  className="text-sm sm:text-sm text-white font-poppins transition-colors whitespace-nowrap px-3 py-1 rounded-full hover:bg-[#55BAC6] hover:text-white"
                 >
                   {item.label}
                 </a>
@@ -28,7 +28,7 @@ export default function Footer() {
 
           {/* On vous rappelle Section */}
           <div className="flex flex-col w-full lg:w-auto lg:max-w-[379px]">
-            <h3 className="text-white text-sm sm:text-base font-poppins mb-2">
+            <h3 className="text-white text-sm sm:text-sm font-poppins mb-2">
               On vous rappelle
             </h3>
             <p className="text-[#c2c2c2] text-xs sm:text-sm font-poppins font-light mb-4">
@@ -40,7 +40,7 @@ export default function Footer() {
               <input
                 type="tel"
                 placeholder="Téléphone"
-                className="bg-white/10 border border-white/20 rounded-[6px] h-[34px] px-3 text-white placeholder-white/60 text-sm sm:text-base font-poppins focus:outline-none focus:border-[#55BAC6] transition-colors w-full sm:w-[200px] lg:w-[270px]"
+                className="bg-white/10 border border-white/20 rounded-[6px] h-[34px] px-3 text-white placeholder-white/60 text-sm sm:text-sm font-poppins focus:outline-none focus:border-[#55BAC6] transition-colors w-full sm:w-[200px] lg:w-[270px]"
               />
               <button
                 type="button"
@@ -71,7 +71,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-[#4e4e4e]">
-          <p className="text-white text-xs sm:text-sm lg:text-base font-poppins text-center">
+          <p className="text-white text-xs sm:text-sm lg:text-sm font-poppins text-center">
             2026 Wing Kite Horizon. Droits réservés
           </p>
         </div>

@@ -32,11 +32,11 @@ export default function Home() {
           <div className="relative z-[0] -mt-24">
             <BoatZone />
           </div>
+          <Banner />
           <PhotoNav />
 
           <Favorites />
           <Editorial />
-          <Banner />
         </div>
         <Footer />
       </div>

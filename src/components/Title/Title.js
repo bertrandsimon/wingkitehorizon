@@ -2,16 +2,24 @@
 
 import { useTheme } from "@/contexts/ThemeContext";
 
-export default function Title({ title1, title2, description, title2ClassName = "" }) {
+export default function Title({
+  title1,
+  title2,
+  description,
+  title2ClassName = "",
+  containerPaddingClassName = "p-4 sm:p-6 lg:p-10",
+}) {
   const { theme } = useTheme();
   const textColor = theme === "light" ? "text-black" : "text-white";
   const descriptionColor = theme === "light" ? "text-gray-600" : "text-[#9ea0a9]";
   const title2ColorClass = title2ClassName ? "" : textColor;
 
   return (
-    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 sm:p-6 lg:p-10 gap-4 sm:gap-6">
+    <div
+      className={`flex flex-col sm:flex-row items-start sm:items-center justify-between ${containerPaddingClassName} gap-4 sm:gap-6`}
+    >
       <div className="font-poppins">
-        <p className={`font-light text-sm sm:text-base lg:text-lg ${textColor}`}>{title1}</p>
+        <p className={`font-light text-sm sm:text-sm lg:text-lg ${textColor}`}>{title1}</p>
         <p
           className={`font-light text-2xl sm:text-3xl lg:text-4xl font-display ${title2ColorClass} ${title2ClassName}`}
         >

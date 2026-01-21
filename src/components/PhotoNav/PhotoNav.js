@@ -13,7 +13,7 @@ export default function PhotoNav({
   const { theme } = useTheme();
   // Text on photos should be white in light mode
   const textColor = theme === "light" ? "text-white" : "text-white";
-  const paragraphColor = theme === "light" ? "text-[#777f94]" : "text-white/70";
+  const paragraphColor = theme === "light" ? "text-gray-600" : "text-white/70";
 
   // Export these 3 images from Figma to /public/images as JPG:
   // - photonav1.jpg (top)
@@ -57,7 +57,7 @@ export default function PhotoNav({
               />
               <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-10">
                 <p
-                  className={`${textColor} font-poppins font-light text-base sm:text-lg leading-tight`}
+                  className={`${textColor} font-poppins font-light text-sm sm:text-lg leading-tight`}
                 >
                   {captions.top.line1}
                 </p>
@@ -70,7 +70,7 @@ export default function PhotoNav({
             </div>
 
             <p
-              className={`${paragraphColor} font-poppins text-[14px] leading-[1.92] w-full lg:w-[519px]`}
+              className={`${paragraphColor} font-poppins text-sm leading-[1.92] w-full lg:w-[519px]`}
             >
               {bodyText}
             </p>
@@ -88,7 +88,7 @@ export default function PhotoNav({
               />
               <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-8">
                 <p
-                  className={`${textColor} font-poppins font-light text-base sm:text-lg leading-tight`}
+                  className={`${textColor} font-poppins font-light text-sm sm:text-lg leading-tight`}
                 >
                   {captions.bottomLeft.line1}
                 </p>
@@ -111,7 +111,7 @@ export default function PhotoNav({
               />
               <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-8">
                 <p
-                  className={`${textColor} font-poppins font-light text-base sm:text-lg leading-tight`}
+                  className={`${textColor} font-poppins font-light text-sm sm:text-lg leading-tight`}
                 >
                   {captions.bottomRight.line1}
                 </p>

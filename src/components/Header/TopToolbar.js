@@ -11,7 +11,7 @@ export default function TopToolbar({ isSticky = false }) {
   const spacingClass = isSticky ? "mb-2 sm:mb-4" : "";
 
   return (
-    <div className="w-full bg-transparent py-2 sm:py-4">
+    <div className="w-full bg-transparent py-1 sm:py-2">
       <div className="w-full max-w-[1260px] mx-auto px-2 sm:px-4">
         <div
           className={`flex flex-col sm:flex-row items-start sm:items-center justify-end gap-2 sm:gap-4 ${spacingClass}`}
