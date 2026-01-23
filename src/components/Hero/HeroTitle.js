@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function HeroTitle() {
+export default function HeroTitle({ slide }) {
   return (
     <div className="text-left pl-6 sm:pl-10 lg:pl-[120px]">
       <div className="inline-block">
@@ -12,7 +12,7 @@ export default function HeroTitle() {
             animationTimingFunction: "ease",
           }}
         >
-          Croisière coaching
+          {slide.title1}
         </p>
         <p
           className="text-6xl font-semibold text-[#102F77] leading-none font-sans text-right animate__animated animate__fadeInRightSoft"
@@ -22,7 +22,7 @@ export default function HeroTitle() {
             animationTimingFunction: "ease",
           }}
         >
-          kitesurf & wingsurf
+          {slide.title2}
         </p>
         <div className="flex items-center justify-end">
           <p
@@ -33,10 +33,10 @@ export default function HeroTitle() {
               animationTimingFunction: "ease",
             }}
           >
-            Votre aventure{" "}
-            <span className="font-display italic">inoubliable</span>
+            {slide.taglineLine1}{" "}
+            <span className="font-display italic">{slide.taglineEmphasis}</span>
             <br />
-            <span className="block text-right">commence ici</span>
+            <span className="block text-right">{slide.taglineLine2}</span>
           </p>
           <div className="ml-[8px]">
             <Image

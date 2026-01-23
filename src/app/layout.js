@@ -1,5 +1,5 @@
 import { Poppins, Roboto, Shrikhand } from "next/font/google";
-import { ThemeProvider } from "@/contexts/ThemeContext";
+import Providers from "./Providers";
 import "animate.css";
 import "./globals.css";
 
@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${roboto.variable} ${shrikhand.variable} ${poppins.variable} antialiased min-h-screen`}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

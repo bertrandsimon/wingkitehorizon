@@ -3,12 +3,14 @@
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useContactModal } from "@/contexts/ContactModalContext";
 import Navigation from "./Navigation";
 import TopToolbar from "./TopToolbar";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const { open: openContact } = useContactModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,6 +64,7 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-3">
           <button
             type="button"
+            onClick={openContact}
             className="cursor-pointer bg-black text-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-poppins hover:bg-[#55BAC6] transition-colors"
           >
             Contact
@@ -95,6 +98,10 @@ export default function Header() {
             <div className="flex items-center justify-between pt-4">
               <button
                 type="button"
+                onClick={() => {
+                  openContact();
+                  setIsMobileMenuOpen(false);
+                }}
                 className="cursor-pointer bg-black text-white px-4 py-2 rounded-full text-sm font-poppins hover:bg-[#55BAC6] transition-colors"
               >
                 Contact
