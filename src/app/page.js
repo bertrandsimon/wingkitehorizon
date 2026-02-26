@@ -10,8 +10,6 @@ import HeroSection from "@/components/Hero/HeroSection";
 // import AnimatedNav from "@/components/Navigation/AnimatedNav";
 import PhotoNav from "@/components/PhotoNav/PhotoNav";
 import Presentation from "@/components/Presentation/Presentation";
-import TestimonialCarousel from "@/components/Testimonials/TestimonialCarousel";
-import ThematicSection from "@/components/Thematics/ThematicSection";
 export default function Home() {
   return (
     <div className="pt-2 px-2 sm:px-4 bg-[#EFEEF1]">

@@ -9,7 +9,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Header from "@/components/Header/Header";
 import HeroTitle from "./HeroTitle";
-import SearchForm from "./SearchForm";
 export default function HeroSection() {
   const slides = [
     {
@@ -74,40 +73,40 @@ export default function HeroSection() {
       </div>
 
       {/* Kiter overlay */}
-      {currentIndex === 0 ? (
-        <div className="absolute top-0 left-0 sm:left-2 lg:left-4 z-5 pointer-events-none">
-          <Image
-            src="/images/kiter.png"
-            alt="Kiter"
-            width={420}
-            height={420}
-            className="w-[200px] sm:w-[260px] lg:w-[340px] h-auto"
-          />
-        </div>
-      ) : null}
+      {currentIndex === 0
+        ? <div className="absolute top-0 left-0 sm:left-2 lg:left-4 z-5 pointer-events-none">
+            <Image
+              src="/images/kiter.png"
+              alt="Kiter"
+              width={420}
+              height={420}
+              className="w-[200px] sm:w-[260px] lg:w-[340px] h-auto"
+            />
+          </div>
+        : null}
 
       {/* Left Navigation Arrow */}
       <button
         onClick={prevSlide}
-        className="hidden sm:flex absolute left-2 sm:left-4 lg:left-8 z-20 p-2 text-white hover:text-[#df986c] transition-colors cursor-pointer items-center h-full"
+        className="hidden sm:flex absolute left-2 sm:left-4 lg:left-8 z-20 p-2 text-white hover:text-[#55BAC6] transition-colors cursor-pointer items-center h-full"
         aria-label="Previous slide"
       >
         <ArrowLongLeftIcon className="w-5 h-5 sm:w-6 sm:h-6" />
       </button>
 
       {/* Content */}
-      <div className="relative z-20 container max-w-[1200px] px-4 py-16 sm:py-24 lg:py-32 flex items-center justify-start">
-        <div className="max-w-5xl text-left w-full px-2">
+      <div className="relative z-20 container max-w-[1200px] px-4 py-16 sm:py-24 lg:py-32 flex items-center justify-center sm:justify-start">
+        <div className="max-w-5xl text-center sm:text-left w-full px-2">
           <HeroTitle key={currentIndex} slide={slides[currentIndex]} />
 
-          <SearchForm />
+          {/* <SearchForm /> */}
         </div>
       </div>
 
       {/* Right Navigation Arrow */}
       <button
         onClick={nextSlide}
-        className="hidden sm:flex absolute right-2 sm:right-4 lg:right-8 z-20 p-2 text-white hover:text-[#df986c] transition-colors cursor-pointer items-center h-full"
+        className="hidden sm:flex absolute right-2 sm:right-4 lg:left-auto lg:right-8 z-20 p-2 text-white hover:text-[#55BAC6] transition-colors cursor-pointer items-center h-full"
         aria-label="Next slide"
       >
         <ArrowLongRightIcon className="w-5 h-5 sm:w-6 sm:h-6" />

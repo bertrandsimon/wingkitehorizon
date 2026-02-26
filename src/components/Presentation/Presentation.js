@@ -9,7 +9,8 @@ export default function Presentation() {
             src="/images/presentation/presentation.jpg"
             alt="Coaching en action"
             fill
-            className="object-contain"
+            sizes="(max-width: 1024px) 100vw, 560px"
+            className="object-cover"
           />
         </div>
 
@@ -20,11 +21,11 @@ export default function Presentation() {
                 Coaching
               </span>
             </div>
-            <p className="mt-4 font-poppins text-4xl font-bold leading-[103%]">
+            <p className="mt-4 font-poppins text-2xl sm:text-4xl font-bold leading-[1.1]">
               <span className="text-[#102F77]">Croisière </span>
               <span className="text-[#55BAC6]">Kitesurf et Wingfoil.</span>
             </p>
-            <p className="mt-2 font-poppins text-2xl font-bold leading-[103%]">
+            <p className="mt-2 font-poppins text-xl sm:text-2xl font-bold leading-[1.1]">
               <span className="text-[#55BAC6]">Progresser</span>{" "}
               <span className="text-[#102F77]">Apprendre</span>{" "}
               <span className="text-[#55BAC6]">Voyager</span>

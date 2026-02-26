@@ -46,14 +46,15 @@ export default function BoatZone() {
         </div>
 
         {/* Right column */}
-
-        <Image
-          src="/images/catamaran.jpg"
-          alt="Catamaran"
-          className="object-cover"
-          width={530}
-          height={565}
-        />
+        <div className="relative w-full aspect-[530/565] rounded-[16px] overflow-hidden bg-black/5">
+          <Image
+            src="/images/catamaran.jpg"
+            alt="Catamaran"
+            fill
+            sizes="(max-width: 1024px) 100vw, 530px"
+            className="object-cover"
+          />
+        </div>
       </div>
     </section>
   );

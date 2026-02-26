@@ -1,10 +1,13 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
+
 export default function Footer() {
   const navItems = [
-    { label: "Le concept", href: "#le-concept" },
-    { label: "Kite trips", href: "#kite-trips" },
-    { label: "Coaching", href: "#coaching" },
+    { label: "Le concept", href: "/le-concept" },
+    { label: "Kite trips", href: "/kite-trips" },
+    { label: "Coaching", href: "/coaching" },
   ];
 
   return (
@@ -15,14 +18,30 @@ export default function Footer() {
           <nav className="w-full lg:w-auto">
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 lg:gap-6">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
                   className="text-sm sm:text-sm text-white font-poppins transition-colors whitespace-nowrap px-3 py-1 rounded-full hover:bg-[#55BAC6] hover:text-white"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
+            </div>
+
+            <div className="mt-6">
+              <Link
+                href="/"
+                aria-label="Retour à l’accueil"
+                className="inline-flex"
+              >
+                <Image
+                  src="/images/logo-wingkite-horizon.png"
+                  alt="Wing Kite Horizon"
+                  width={202}
+                  height={77}
+                  className="object-contain w-[160px] sm:w-[190px]"
+                />
+              </Link>
             </div>
           </nav>
 

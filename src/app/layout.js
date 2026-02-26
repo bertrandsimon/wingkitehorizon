@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body
-        className={`${roboto.variable} ${shrikhand.variable} ${poppins.variable} antialiased min-h-screen`}
+        className={`${roboto.variable} ${shrikhand.variable} ${poppins.variable} antialiased min-h-screen overflow-x-hidden`}
       >
         <Providers>{children}</Providers>
       </body>

@@ -11,7 +11,7 @@ export default function ThemeCard({ theme }) {
   return (
     <div className="relative group cursor-pointer flex flex-col items-center">
       <div
-        className={`relative w-[290px] h-[290px] rounded-[24px] overflow-hidden border-2 ${borderColor} shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]`}
+        className={`relative w-[240px] h-[240px] sm:w-[290px] sm:h-[290px] rounded-[24px] overflow-hidden border-2 ${borderColor} shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]`}
       >
         <Image
           src={theme.image}
@@ -28,11 +28,11 @@ export default function ThemeCard({ theme }) {
           <p className="text-white font-poppins font-semibold text-lg sm:text-2xl leading-tight">
             {theme.title}
           </p>
-          {theme.description ? (
-            <p className="mt-2 hidden sm:block text-white/90 font-poppins font-light text-sm leading-relaxed">
-              {theme.description}
-            </p>
-          ) : null}
+          {theme.description
+            ? <p className="mt-2 hidden sm:block text-white/90 font-poppins font-light text-sm leading-relaxed">
+                {theme.description}
+              </p>
+            : null}
         </div>
       </div>
     </div>

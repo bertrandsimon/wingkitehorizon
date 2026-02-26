@@ -5,12 +5,11 @@ import {
   ArrowLongRightIcon,
 } from "@heroicons/react/24/outline";
 import { useCallback, useRef } from "react";
-import Title from "@/components/Title/Title";
 import { useTheme } from "@/contexts/ThemeContext";
 
 function FavoriteFlipCard({ item }) {
   return (
-    <div className="w-[290px] h-[290px] perspective-1000 group">
+    <div className="w-[240px] h-[240px] sm:w-[290px] sm:h-[290px] perspective-1000 group">
       <div className="relative w-full h-full cursor-pointer preserve-3d transition-transform duration-700 ease-in-out group-hover:rotate-y-180">
         {/* Front */}
         <div
@@ -36,11 +35,7 @@ function FavoriteFlipCard({ item }) {
   );
 }
 
-export default function Favorites({
-  title = "nos destinations",
-  subtitle = "coups de coeur",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-}) {
+export default function Favorites() {
   const { theme } = useTheme();
   const arrowColor = theme === "light" ? "text-black" : "text-white";
   const trackRef = useRef(null);

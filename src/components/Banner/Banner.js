@@ -18,17 +18,17 @@ export default function Banner() {
       <div className="relative h-full max-w-[1260px] mx-auto px-4 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 h-full items-center">
           {/* Left column - empty for image focus */}
-          <div />
+          <div className="hidden lg:block" />
 
           {/* Right column - Content */}
-          <div className="flex flex-col items-end gap-6 py-8 lg:py-16">
+          <div className="flex flex-col items-start lg:items-end gap-6 py-8 lg:py-16">
             <div className="w-full max-w-[593px]">
               {/* Title (aligned with glass block left edge) */}
               <div className="text-left">
-                <p className="text-4xl sm:text-5xl font-semibold text-white leading-tight font-poppins">
+                <p className="text-3xl sm:text-5xl font-semibold text-white leading-tight font-poppins">
                   Un nouveau spot
                 </p>
-                <p className="text-5xl sm:text-6xl font-semibold text-[#102F77] leading-tight font-poppins">
+                <p className="text-4xl sm:text-6xl font-semibold text-[#102F77] leading-tight font-poppins">
                   chaque jour ?
                 </p>
               </div>
