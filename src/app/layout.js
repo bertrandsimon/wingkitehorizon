@@ -21,15 +21,41 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
+import { headers } from "next/headers";
+import { SITE_URL } from "@/lib/seo";
+
 export const metadata = {
-  title: "Wing Kite Horizon",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Wing Kite Horizon | Croisière Kitesurf & Wingfoil en Grèce",
+  },
   description:
-    "Wing Kite Horizon - école et expériences de wingfoil et kitesurf.",
+    "Croisière sportive kitesurf et wingfoil dans les Cyclades. Coaching personnalisé, spots secrets, vie à bord. Réservez votre aventure en mer.",
+  keywords: ["kitesurf Grèce", "wingfoil Cyclades", "croisière kitesurf", "coaching wingfoil", "Paros", "Naxos"],
+  authors: [{ name: "Wing Kite Horizon", url: SITE_URL }],
+  creator: "Wing Kite Horizon",
+  openGraph: {
+    type: "website",
+    siteName: "Wing Kite Horizon",
+    images: [{ url: "/images/concept.jpg", width: 1200, height: 630, alt: "Wing Kite Horizon" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const headersList = await headers();
+  const locale = headersList.get("x-locale") || "fr";
   return (
-    <html lang="fr">
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <link
           rel="stylesheet"

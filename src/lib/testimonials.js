@@ -1,5 +1,4 @@
-// Testimonials data
-export const testimonials = [
+export const testimonialsFr = [
   {
     id: 1,
     name: "Camille R.",
@@ -22,3 +21,31 @@ export const testimonials = [
     photo: "/images/avatar3.jpg",
   },
 ];
+
+export const testimonialsEn = [
+  {
+    id: 1,
+    name: "Camille R.",
+    role: "Kitesurf (intermediate)",
+    text: "Amazing experience: super clear coaching, the right spot at the right time, and a great vibe on board. In 5 days I unlocked my transitions and gained confidence.",
+    photo: "/images/avatar1.jpg",
+  },
+  {
+    id: 2,
+    name: "Marion M.",
+    role: "Wingfoil (beginner)",
+    text: "I started wingfoil from zero: the right gear, clear briefings, video feedback… Progress is fast and you ride a lot. The cruise format is simply perfect.",
+    photo: "/images/avatar2.jpg",
+  },
+  {
+    id: 3,
+    name: "Greg T.",
+    role: "Kite & Wing",
+    text: "Between sessions, sailing and life on the catamaran, everything flows. A new spot every day and truly personalized coaching. 100% recommended.",
+    photo: "/images/avatar3.jpg",
+  },
+];
+
+export function getTestimonials(locale) {
+  return locale === "en" ? testimonialsEn : testimonialsFr;
+}

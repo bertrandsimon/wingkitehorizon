@@ -4,11 +4,13 @@ import BookNowButton from "@/components/CTAs/BookNowButton";
 import InternalHero from "@/components/InternalPages/InternalHero";
 import InternalSplitSection from "@/components/InternalPages/InternalSplitSection";
 
-export const metadata = {
-  title: "Kite trips | Wing Kite Horizon",
-  description:
-    "Kite trips en Grèce : itinéraires, spots, organisation à bord et expérience ride.",
-};
+import { SEO, buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  ...SEO.fr["kite-trips"],
+  path: "/kite-trips",
+  locale: "fr",
+});
 
 export default function KiteTripsPage() {
   return (

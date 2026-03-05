@@ -1,7 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { getLocaleFromPathname } from "@/lib/i18n";
 
 export default function Presentation() {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
+
   return (
     <section className="w-full max-w-[1200px] mx-auto px-4 py-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -19,53 +26,81 @@ export default function Presentation() {
           <div className="mb-6">
             <div className="inline-flex items-center justify-center rounded-[1000px] bg-[#55BAC6] w-[135px] h-[26px]">
               <span className="text-white font-poppins text-sm font-semibold leading-[103%] uppercase">
-                Coaching
+                {locale === "en" ? "Coaching" : "Coaching"}
               </span>
             </div>
             <p className="mt-4 font-poppins text-2xl sm:text-4xl font-bold leading-[1.1]">
-              <span className="text-[#102F77]">Croisière </span>
-              <span className="text-[#55BAC6]">Kitesurf et Wingfoil.</span>
+              <span className="text-[#102F77]">
+                {locale === "en" ? "Cruise " : "Croisière "}
+              </span>
+              <span className="text-[#55BAC6]">
+                {locale === "en" ? "Kitesurf & Wingfoil." : "Kitesurf et Wingfoil."}
+              </span>
             </p>
             <p className="mt-2 font-poppins text-xl sm:text-2xl font-bold leading-[1.1]">
-              <span className="text-[#55BAC6]">Progresser</span>{" "}
-              <span className="text-[#102F77]">Apprendre</span>{" "}
-              <span className="text-[#55BAC6]">Voyager</span>
+              <span className="text-[#55BAC6]">
+                {locale === "en" ? "Progress" : "Progresser"}
+              </span>{" "}
+              <span className="text-[#102F77]">
+                {locale === "en" ? "Learn" : "Apprendre"}
+              </span>{" "}
+              <span className="text-[#55BAC6]">
+                {locale === "en" ? "Travel" : "Voyager"}
+              </span>
             </p>
             <p className="mt-3 text-gray-600 font-poppins text-sm font-normal leading-[192%]">
-              <span className="block">
-                Progressez rapidement, quel que soit
-              </span>
-              <span className="block">
-                votre niveau, avec un suivi personnalisé
-              </span>
-              <span className="block">et des sessions sur mesure.</span>
+              {locale === "en" ? (
+                <>
+                  <span className="block">
+                    Improve fast, whatever your level,
+                  </span>
+                  <span className="block">
+                    with personalized coaching
+                  </span>
+                  <span className="block">and tailored sessions.</span>
+                </>
+              ) : (
+                <>
+                  <span className="block">
+                    Progressez rapidement, quel que soit
+                  </span>
+                  <span className="block">
+                    votre niveau, avec un suivi personnalisé
+                  </span>
+                  <span className="block">et des sessions sur mesure.</span>
+                </>
+              )}
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="rounded-[16px] bg-white p-5 shadow-[0px_12px_30px_rgba(16,47,119,0.12)]">
               <p className="text-[#102F77] font-poppins text-sm font-bold leading-[192%]">
-                Coaching Kitesurf
+                {locale === "en" ? "Kitesurf coaching" : "Coaching Kitesurf"}
               </p>
               <p className="text-sm text-[#5f5f5f] font-poppins">
-                Accompagnement individuel et objectif ciblé.
+                {locale === "en"
+                  ? "Individual guidance with focused goals."
+                  : "Accompagnement individuel et objectif ciblé."}
               </p>
             </div>
             <div className="rounded-[16px] bg-white p-5 shadow-[0px_12px_30px_rgba(16,47,119,0.12)]">
               <p className="text-[#102F77] font-poppins text-sm font-bold leading-[192%]">
-                Coaching Wingfoil
+                {locale === "en" ? "Wingfoil coaching" : "Coaching Wingfoil"}
               </p>
               <p className="text-sm text-[#5f5f5f] font-poppins">
-                Sessions dynamiques pour progresser ensemble.
+                {locale === "en"
+                  ? "Dynamic sessions to progress together."
+                  : "Sessions dynamiques pour progresser ensemble."}
               </p>
             </div>
           </div>
 
           <Link
-            href="/le-concept"
-            className="mt-6 inline-flex items-center justify-center rounded-full bg-[#102F77] px-6 py-3 text-sm sm:text-sm font-poppins text-white transition-colors hover:bg-[#55BAC6] cursor-pointer"
+            href={locale === "en" ? "/en/concept" : "/le-concept"}
+            className="mt-6 inline-flex items-center justify-center rounded-lg bg-[#ea580c] px-6 py-3 text-sm font-poppins font-medium text-white shadow-sm transition-colors hover:bg-[#c2410b] cursor-pointer"
           >
-            En savoir plus
+            {locale === "en" ? "Learn more" : "En savoir plus"}
           </Link>
         </div>
       </div>

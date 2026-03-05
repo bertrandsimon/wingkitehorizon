@@ -1,9 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import BookNowButton from "@/components/CTAs/BookNowButton";
+import { nextDeparture } from "@/lib/constants";
+import { getLocaleFromPathname } from "@/lib/i18n";
 
 export default function HeroTitle({ slide }) {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
   return (
     <div className="text-center sm:text-left px-4 sm:px-0 sm:pl-10 lg:pl-[120px]">
       <div className="inline-block">
@@ -57,15 +62,31 @@ export default function HeroTitle({ slide }) {
             </div>
           </div>
 
-          <div
-            className="animate__animated animate__fadeInUp"
-            style={{
-              animationDelay: "1.05s",
-              animationDuration: "1s",
-              animationTimingFunction: "ease",
-            }}
-          >
-            <BookNowButton className="mt-4 px-7 py-3 text-sm sm:text-base" />
+          <div className="mt-4 inline-flex flex-col items-stretch gap-3">
+            <div
+              className="animate__animated animate__fadeInUp"
+              style={{
+                animationDelay: "1.05s",
+                animationDuration: "1s",
+                animationTimingFunction: "ease",
+              }}
+            >
+              <BookNowButton variant="slide" className="w-full px-7 py-3 text-sm sm:text-base" />
+            </div>
+            <div
+              className="animate__animated animate__fadeInUp"
+              style={{
+                animationDelay: "1.5s",
+                animationDuration: "1s",
+                animationTimingFunction: "ease",
+              }}
+            >
+              <span className="inline-flex w-full items-center justify-center rounded-lg bg-[#ea580c] px-3 py-1.5 text-xs font-medium text-white shadow-sm sm:text-sm font-poppins">
+                {locale === "en"
+                  ? `Next departure on ${nextDeparture.dateEn}`
+                  : `Prochain départ le ${nextDeparture.date}`}
+              </span>
+            </div>
           </div>
         </div>
       </div>

@@ -7,11 +7,16 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { useTheme } from "@/contexts/ThemeContext";
-import { testimonials } from "@/lib/testimonials";
+import { getLocaleFromPathname } from "@/lib/i18n";
+import { getTestimonials } from "@/lib/testimonials";
 
 export default function TestimonialCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
+  const testimonials = getTestimonials(locale);
   const currentTestimonial = testimonials[currentIndex];
   const { theme } = useTheme();
   const textColor = theme === "light" ? "text-black" : "text-white";

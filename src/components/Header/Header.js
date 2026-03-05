@@ -6,19 +6,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useContactModal } from "@/contexts/ContactModalContext";
+import { getLocaleFromPathname, getNavItems, isHomePath } from "@/lib/i18n";
 import Navigation from "./Navigation";
 import TopToolbar from "./TopToolbar";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const forceSticky = pathname !== "/";
+  const locale = getLocaleFromPathname(pathname);
+  const forceSticky = !isHomePath(pathname);
   const [isSticky, setIsSticky] = useState(forceSticky);
   const { open: openContact } = useContactModal();
   const navItems = [
-    { label: "Le concept", href: "/le-concept" },
-    { label: "Kite trips", href: "/kite-trips" },
-    { label: "Coaching", href: "/coaching" },
+    ...getNavItems(locale),
   ];
 
   useEffect(() => {

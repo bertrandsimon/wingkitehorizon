@@ -2,14 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { getLocaleFromPathname, getNavItems } from "@/lib/i18n";
 
 export default function Navigation({ isSticky = false }) {
   const pathname = usePathname();
-  const navItems = [
-    { label: "Le concept", href: "/le-concept" },
-    { label: "Kite trips", href: "/kite-trips" },
-    { label: "Coaching", href: "/coaching" },
-  ];
+  const locale = getLocaleFromPathname(pathname);
+  const navItems = getNavItems(locale);
 
   return (
     <nav>

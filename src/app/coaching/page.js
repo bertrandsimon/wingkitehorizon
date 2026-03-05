@@ -4,11 +4,13 @@ import BookNowButton from "@/components/CTAs/BookNowButton";
 import InternalHero from "@/components/InternalPages/InternalHero";
 import InternalSplitSection from "@/components/InternalPages/InternalSplitSection";
 
-export const metadata = {
-  title: "Coaching | Wing Kite Horizon",
-  description:
-    "Coaching kitesurf & wingfoil : progression, sécurité, conseils matériel et accompagnement sur-mesure.",
-};
+import { SEO, buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  ...SEO.fr.coaching,
+  path: "/coaching",
+  locale: "fr",
+});
 
 export default function CoachingPage() {
   return (

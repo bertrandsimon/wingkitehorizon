@@ -6,36 +6,69 @@ import {
   ArrowLongRightIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Header from "@/components/Header/Header";
+import { getLocaleFromPathname } from "@/lib/i18n";
 import HeroTitle from "./HeroTitle";
-export default function HeroSection() {
-  const slides = [
-    {
-      image: "/images/slider1.jpg",
-      title1: "Croisière coaching",
-      title2: "kitesurf & wingsurf",
-      taglineLine1: "Votre aventure",
-      taglineEmphasis: "inoubliable",
-      taglineLine2: "commence ici",
-    },
-    {
-      image: "/images/slider2.jpg",
-      title1: "Naviguer en Grèce",
-      title2: "îles, criques & vent",
-      taglineLine1: "Dépaysement",
-      taglineEmphasis: "garanti",
-      taglineLine2: "chaque jour",
-    },
-    {
-      image: "/images/slider3.jpg",
-      title1: "Kite & Wing",
-      title2: "apprendre & progresser",
-      taglineLine1: "Coaching",
-      taglineEmphasis: "sur-mesure",
-      taglineLine2: "à votre rythme",
-    },
-  ];
+export default function HeroSection({ slides: slidesProp }) {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
+  const slides =
+    slidesProp ||
+    (locale === "en"
+      ? [
+          {
+            image: "/images/slider1.jpg",
+            title1: "Coaching cruise",
+            title2: "kitesurf & wingsurf",
+            taglineLine1: "Your adventure",
+            taglineEmphasis: "unforgettable",
+            taglineLine2: "starts here",
+          },
+          {
+            image: "/images/slider2.jpg",
+            title1: "Sailing Greece",
+            title2: "islands, coves & wind",
+            taglineLine1: "A change of scenery",
+            taglineEmphasis: "guaranteed",
+            taglineLine2: "every day",
+          },
+          {
+            image: "/images/slider3.jpg",
+            title1: "Kite & Wing",
+            title2: "learn & progress",
+            taglineLine1: "Coaching",
+            taglineEmphasis: "tailor-made",
+            taglineLine2: "at your pace",
+          },
+        ]
+      : [
+          {
+            image: "/images/slider1.jpg",
+            title1: "Croisière coaching",
+            title2: "kitesurf & wingsurf",
+            taglineLine1: "Votre aventure",
+            taglineEmphasis: "inoubliable",
+            taglineLine2: "commence ici",
+          },
+          {
+            image: "/images/slider2.jpg",
+            title1: "Naviguer en Grèce",
+            title2: "îles, criques & vent",
+            taglineLine1: "Dépaysement",
+            taglineEmphasis: "garanti",
+            taglineLine2: "chaque jour",
+          },
+          {
+            image: "/images/slider3.jpg",
+            title1: "Kite & Wing",
+            title2: "apprendre & progresser",
+            taglineLine1: "Coaching",
+            taglineEmphasis: "sur-mesure",
+            taglineLine2: "à votre rythme",
+          },
+        ]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
@@ -51,7 +84,7 @@ export default function HeroSection() {
       setCurrentIndex((prev) => (prev + 1) % slides.length);
     }, 7000);
     return () => clearInterval(interval);
-  }, []);
+  }, [slides.length]);
 
   return (
     <section className="relative w-full min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] flex items-center justify-center overflow-hidden">

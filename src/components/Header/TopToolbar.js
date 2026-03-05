@@ -1,10 +1,16 @@
 "use client";
 
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTheme } from "@/contexts/ThemeContext";
 import { contactInfo } from "@/lib/constants";
+import { getLocaleFromPathname, getLocaleSwitchHref } from "@/lib/i18n";
+import { FlagFR, FlagUK } from "./FlagIcon";
 
 export default function TopToolbar({ isSticky = false }) {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
   const { theme } = useTheme();
   const textColor = theme === "light" ? "text-black" : "text-white";
   const dividerColor = theme === "light" ? "bg-black/30" : "bg-white/30";
@@ -38,6 +44,27 @@ export default function TopToolbar({ isSticky = false }) {
             >
               {contactInfo.email}
             </a>
+
+            <div className={`hidden sm:block h-4 w-px ${dividerColor}`}></div>
+            <div className="flex items-center gap-1">
+              {locale === "en" ? (
+                <Link
+                  href={getLocaleSwitchHref(pathname, "fr")}
+                  aria-label="Version française"
+                  className={`p-0.5 rounded-md font-poppins transition-colors ${textColor} hover:bg-black/5`}
+                >
+                  <FlagFR className="w-4 h-4" />
+                </Link>
+              ) : (
+                <Link
+                  href={getLocaleSwitchHref(pathname, "en")}
+                  aria-label="English version"
+                  className={`p-0.5 rounded-md font-poppins transition-colors ${textColor} hover:bg-black/5`}
+                >
+                  <FlagUK className="w-4 h-4" />
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       </div>

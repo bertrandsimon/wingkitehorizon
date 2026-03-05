@@ -20,8 +20,16 @@ export const images = {
     "http://localhost:3845/assets/79bd77455bde48acfd121c0a4715b6feebd67193.svg",
 };
 
+// Next departure (update when scheduling new trips)
+export const nextDeparture = {
+  date: "XX juin 2026",
+  dateEn: "June XX 2026",
+};
+
 // Contact information
 export const contactInfo = {
   phone: "+55 19 991836664",
   email: "contact@wingkitehorizon.com",
+  // Emails where contact form submissions are sent
+  formRecipients: ["trandber@hotmail.com", "mickael.galerne@gmail.com"],
 };

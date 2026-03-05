@@ -1,19 +1,38 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import Title from "@/components/Title/Title";
 import { useTheme } from "@/contexts/ThemeContext";
+import { getLocaleFromPathname } from "@/lib/i18n";
 
 export default function PhotoNav({
-  title = "Le plus beau détour",
-  subtitle = "vers le dépaysement",
-  description = "Naviguez en Grèce, entre eaux turquoise et criques sauvages. Kite, wing et coaching sur-mesure pour progresser, explorer et vivre la vie locale.",
-  bodyText = "Cap sur la Grèce pour une parenthèse hors du temps : mouillages idylliques, villages blancs, tavernes au bord de l’eau et sessions quotidiennes dans des spots choisis selon le vent. Que vous veniez pour apprendre ou pour vous perfectionner, on vous accompagne en kite et en wing avec un coaching adapté à votre niveau. Entre navigation, découverte des paysages et immersion locale, chaque journée est un mix parfait d’aventure, de glisse et de douceur de vivre.",
+  title,
+  subtitle,
+  description,
+  bodyText,
 }) {
   const { theme } = useTheme();
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
   // Text on photos should be white in light mode
   const textColor = theme === "light" ? "text-white" : "text-white";
   const paragraphColor = theme === "light" ? "text-gray-600" : "text-white/70";
+
+  const resolvedTitle =
+    title || (locale === "en" ? "The most beautiful detour" : "Le plus beau détour");
+  const resolvedSubtitle =
+    subtitle || (locale === "en" ? "toward escape" : "vers le dépaysement");
+  const resolvedDescription =
+    description ||
+    (locale === "en"
+      ? "Sail in Greece, between turquoise waters and wild coves. Kite, wing and tailor-made coaching to progress, explore and enjoy local life."
+      : "Naviguez en Grèce, entre eaux turquoise et criques sauvages. Kite, wing et coaching sur-mesure pour progresser, explorer et vivre la vie locale.");
+  const resolvedBodyText =
+    bodyText ||
+    (locale === "en"
+      ? "Set course for Greece for a timeless escape: idyllic anchorages, white villages, waterfront tavernas and daily sessions on spots chosen with the wind. Whether you come to learn or refine your skills, we coach you in kite and wing with guidance adapted to your level. Between sailing, discovering landscapes and local immersion, every day is the perfect mix of adventure, riding and Mediterranean ease."
+      : "Cap sur la Grèce pour une parenthèse hors du temps : mouillages idylliques, villages blancs, tavernes au bord de l’eau et sessions quotidiennes dans des spots choisis selon le vent. Que vous veniez pour apprendre ou pour vous perfectionner, on vous accompagne en kite et en wing avec un coaching adapté à votre niveau. Entre navigation, découverte des paysages et immersion locale, chaque journée est un mix parfait d’aventure, de glisse et de douceur de vivre.");
 
   // Export these 3 images from Figma to /public/images as JPG:
   // - photonav1.jpg (top)
@@ -25,21 +44,34 @@ export default function PhotoNav({
     bottomRight: "/images/photonav3.jpg",
   };
 
-  const captions = {
-    top: { line1: "Naviguer en Grèce", line2: "Entre îles & lagons" },
-    bottomLeft: { line1: "Dépaysement total", line2: "Paysages magnifiques" },
-    bottomRight: {
-      line1: "Kite & Wing",
-      line2: "Apprendre & se faire coacher",
-    },
-  };
+  const captions =
+    locale === "en"
+      ? {
+          top: { line1: "Sailing in Greece", line2: "Islands & lagoons" },
+          bottomLeft: { line1: "Total escape", line2: "Stunning landscapes" },
+          bottomRight: {
+            line1: "Kite & Wing",
+            line2: "Learn & get coached",
+          },
+        }
+      : {
+          top: { line1: "Naviguer en Grèce", line2: "Entre îles & lagons" },
+          bottomLeft: {
+            line1: "Dépaysement total",
+            line2: "Paysages magnifiques",
+          },
+          bottomRight: {
+            line1: "Kite & Wing",
+            line2: "Apprendre & se faire coacher",
+          },
+        };
 
   return (
     <>
       <Title
-        title1={title}
-        title2={subtitle}
-        description={description}
+        title1={resolvedTitle}
+        title2={resolvedSubtitle}
+        description={resolvedDescription}
         title2ClassName="font-poppins text-[#55BAC6] text-xl sm:text-2xl lg:text-3xl"
       />
       <div className="w-full pb-8 sm:pb-12 lg:pb-30 flex justify-center">
@@ -69,10 +101,8 @@ export default function PhotoNav({
               </div>
             </div>
 
-            <p
-              className={`${paragraphColor} font-poppins text-sm leading-[1.92] w-full lg:w-[519px]`}
-            >
-              {bodyText}
+            <p className={`${paragraphColor} font-poppins text-sm leading-[1.92] w-full lg:w-[519px]`}>
+              {resolvedBodyText}
             </p>
           </div>
 

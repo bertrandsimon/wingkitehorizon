@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { getHomeHref, getLocaleFromPathname, getNavItems } from "@/lib/i18n";
 
 export default function Footer() {
-  const navItems = [
-    { label: "Le concept", href: "/le-concept" },
-    { label: "Kite trips", href: "/kite-trips" },
-    { label: "Coaching", href: "/coaching" },
-  ];
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
+  const navItems = getNavItems(locale);
 
   return (
     <footer className="mt-6 sm:mt-8 w-full bg-black rounded-b-[12px] py-5 sm:py-6">
@@ -30,8 +30,8 @@ export default function Footer() {
 
             <div className="mt-4">
               <Link
-                href="/"
-                aria-label="Retour à l’accueil"
+                href={getHomeHref(locale)}
+                aria-label={locale === "en" ? "Back to home" : "Retour à l’accueil"}
                 className="inline-flex"
               >
                 <Image
@@ -66,7 +66,9 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-white/15">
           <p className="text-white/80 text-xs sm:text-sm font-poppins text-center">
-            2026 Wing Kite Horizon. Droits réservés
+            {locale === "en"
+              ? "2026 Wing Kite Horizon. All rights reserved"
+              : "2026 Wing Kite Horizon. Droits réservés"}
           </p>
         </div>
       </div>
