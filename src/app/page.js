@@ -24,6 +24,37 @@ export default function Home() {
             <ThematicSection />
           </div> */}
 
+          <section className="mt-8 sm:mt-10">
+            <div className="w-full max-w-[1200px] mx-auto px-4">
+              <div className="p-1 sm:p-2">
+                <h2 className="text-[#102F77] font-shrikhand text-2xl sm:text-3xl leading-tight">
+                  Une croisière sportive où chaque journée compte
+                </h2>
+                <p className="mt-4 text-black/80 font-poppins text-sm sm:text-base leading-relaxed">
+                  Cette croisière n’est pas une simple balade en mer. C’est une
+                  expérience immersive dédiée aux sports de glisse : kitesurf,
+                  wingfoil et exploration des plus beaux spots accessibles
+                  uniquement en bateau.
+                </p>
+                <p className="mt-4 text-black/80 font-poppins text-sm sm:text-base leading-relaxed">
+                  <span className="font-semibold text-black">
+                    Chaque journée est optimisée pour naviguer.
+                  </span>{" "}
+                  Grâce à la mobilité du catamaran, nous nous déplaçons en
+                  permanence vers les zones les plus ventées et les meilleures
+                  orientations de vent. L’objectif est simple : maximiser le
+                  temps sur l’eau.
+                </p>
+                <p className="mt-4 text-black/80 font-poppins text-sm sm:text-base leading-relaxed">
+                  Et parce qu’on aime la glisse sous toutes ses formes, un e-foil
+                  est également disponible à bord pour découvrir les sensations
+                  uniques du vol électrique au-dessus de l’eau, même quand le
+                  vent se fait attendre.
+                </p>
+              </div>
+            </div>
+          </section>
+
           <div className="relative z-[10]">
             <Presentation />
           </div>

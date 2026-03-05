@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Presentation() {
   return (
@@ -60,12 +61,12 @@ export default function Presentation() {
             </div>
           </div>
 
-          <button
-            type="button"
-            className="mt-6 inline-flex items-center justify-center rounded-full bg-[#55BAC6] px-6 py-3 text-sm sm:text-sm font-poppins text-white transition-colors hover:bg-[#49a9b3] cursor-pointer"
+          <Link
+            href="/le-concept"
+            className="mt-6 inline-flex items-center justify-center rounded-full bg-[#102F77] px-6 py-3 text-sm sm:text-sm font-poppins text-white transition-colors hover:bg-[#55BAC6] cursor-pointer"
           >
             En savoir plus
-          </button>
+          </Link>
         </div>
       </div>
     </section>

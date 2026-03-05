@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
+import BookNowButton from "@/components/CTAs/BookNowButton";
 import InternalHero from "@/components/InternalPages/InternalHero";
 import InternalSplitSection from "@/components/InternalPages/InternalSplitSection";
 
@@ -70,6 +71,10 @@ export default function KiteTripsPage() {
               "Souvenirs garantis",
             ]}
           />
+
+          <div className="mt-10 sm:mt-12 flex justify-center">
+            <BookNowButton />
+          </div>
         </div>
 
         <Footer />

@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import TestimonialCarousel from "@/components/Testimonials/TestimonialCarousel";
+import { useContactModal } from "@/contexts/ContactModalContext";
 
 export default function BoatZone() {
+  const { open: openContact } = useContactModal();
+
   const boatCards = [
     {
       title: "Cabines",
@@ -55,6 +60,16 @@ export default function BoatZone() {
             className="object-cover"
           />
         </div>
+      </div>
+
+      <div className="mt-8 flex justify-center">
+        <button
+          type="button"
+          onClick={openContact}
+          className="cursor-pointer inline-flex items-center justify-center rounded-full bg-[#102F77] px-7 py-3 text-sm sm:text-base font-poppins text-white transition-colors hover:bg-[#55BAC6]"
+        >
+          Réserver maintenant
+        </button>
       </div>
     </section>
   );

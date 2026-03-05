@@ -69,6 +69,7 @@ export default function HeroSection() {
             className="object-cover transition-opacity duration-500"
             style={{ objectPosition: "center top" }}
           />
+          <div className="absolute inset-0 bg-black/12" />
         </div>
       </div>
 

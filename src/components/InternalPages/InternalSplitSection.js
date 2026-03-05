@@ -44,14 +44,13 @@ export default function InternalSplitSection({
             ))}
 
             {bullets?.length
-              ? <ul className="mt-4 grid gap-2">
+              ? <ul className="mt-4 grid gap-2 list-disc pl-5 marker:text-[#55BAC6]">
                   {bullets.map((b) => (
                     <li
                       key={b}
-                      className="flex gap-2 text-black/80 font-poppins text-sm sm:text-base"
+                      className="text-black/80 font-poppins text-sm sm:text-base leading-relaxed"
                     >
-                      <span className="mt-[6px] h-2 w-2 rounded-full bg-[#55BAC6] flex-shrink-0" />
-                      <span className="leading-relaxed">{b}</span>
+                      {b}
                     </li>
                   ))}
                 </ul>

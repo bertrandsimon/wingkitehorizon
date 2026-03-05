@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import BookNowButton from "@/components/CTAs/BookNowButton";
 
 export default function HeroTitle({ slide }) {
   return (
@@ -24,30 +27,45 @@ export default function HeroTitle({ slide }) {
         >
           {slide.title2}
         </p>
-        <div className="flex items-center justify-center sm:justify-end">
-          <p
-            className="text-xs sm:text-sm lg:text-xl text-white text-center sm:text-right mb-0 mr-2 sm:mr-4 mt-4 animate__animated animate__fadeInUp"
+        <div className="mt-4 flex flex-col items-center sm:items-end">
+          <div className="flex items-center justify-center sm:justify-end">
+            <p
+              className="text-xs sm:text-sm lg:text-xl text-white text-center sm:text-right mb-0 mr-2 sm:mr-4 animate__animated animate__fadeInUp"
+              style={{
+                animationDelay: "0.7s",
+                animationDuration: "1s",
+                animationTimingFunction: "ease",
+              }}
+            >
+              {slide.taglineLine1}{" "}
+              <span className="font-display italic">
+                {slide.taglineEmphasis}
+              </span>
+              <br />
+              <span className="block text-center sm:text-right">
+                {slide.taglineLine2}
+              </span>
+            </p>
+            <div className="ml-[8px]">
+              <Image
+                className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
+                src="/images/arrow-right.png"
+                alt="arrow-right"
+                width={24}
+                height={24}
+              />
+            </div>
+          </div>
+
+          <div
+            className="animate__animated animate__fadeInUp"
             style={{
-              animationDelay: "0.7s",
+              animationDelay: "1.05s",
               animationDuration: "1s",
               animationTimingFunction: "ease",
             }}
           >
-            {slide.taglineLine1}{" "}
-            <span className="font-display italic">{slide.taglineEmphasis}</span>
-            <br />
-            <span className="block text-center sm:text-right">
-              {slide.taglineLine2}
-            </span>
-          </p>
-          <div className="ml-[8px]">
-            <Image
-              className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
-              src="/images/arrow-right.png"
-              alt="arrow-right"
-              width={24}
-              height={24}
-            />
+            <BookNowButton className="mt-4 px-7 py-3 text-sm sm:text-base" />
           </div>
         </div>
       </div>
