@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import TestimonialCarousel from "@/components/Testimonials/TestimonialCarousel";
 import { getLocaleFromPathname } from "@/lib/i18n";
 
 export default function Presentation() {
@@ -11,6 +12,9 @@ export default function Presentation() {
 
   return (
     <section className="w-full max-w-[1200px] mx-auto px-4 py-10">
+      <div className="mb-6 lg:hidden">
+        <TestimonialCarousel />
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         <div className="relative w-full h-[320px] sm:h-[420px] lg:h-[520px] rounded-[16px] overflow-hidden">
           <Image

@@ -20,15 +20,19 @@ export const images = {
     "http://localhost:3845/assets/79bd77455bde48acfd121c0a4715b6feebd67193.svg",
 };
 
-// Next departure (update when scheduling new trips)
+// Next departures (update when scheduling new trips) - displayed in alternance
 export const nextDeparture = {
-  date: "XX juin 2026",
-  dateEn: "June XX 2026",
+  dates: [
+    { fr: "Du 27 juin au 4 juillet", en: "June 27 to July 4" },
+    { fr: "Du 29 août au 5 septembre", en: "August 29 to September 5" },
+  ],
 };
 
 // Contact information
+const phoneRaw = "+55 19 991836664";
 export const contactInfo = {
-  phone: "+55 19 991836664",
+  phone: phoneRaw,
+  whatsappUrl: `https://wa.me/${phoneRaw.replace(/\D/g, "")}`,
   email: "contact@wingkitehorizon.com",
   // Emails where contact form submissions are sent
   formRecipients: ["trandber@hotmail.com", "mickael.galerne@gmail.com"],

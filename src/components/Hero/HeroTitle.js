@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import BookNowButton from "@/components/CTAs/BookNowButton";
 import { nextDeparture } from "@/lib/constants";
 import { getLocaleFromPathname } from "@/lib/i18n";
@@ -9,6 +10,14 @@ import { getLocaleFromPathname } from "@/lib/i18n";
 export default function HeroTitle({ slide }) {
   const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
+  const [dateIndex, setDateIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setDateIndex((i) => (i + 1) % nextDeparture.dates.length);
+    }, 3000);
+    return () => clearInterval(id);
+  }, []);
   return (
     <div className="text-center sm:text-left px-4 sm:px-0 sm:pl-10 lg:pl-[120px]">
       <div className="inline-block">
@@ -82,9 +91,8 @@ export default function HeroTitle({ slide }) {
               }}
             >
               <span className="inline-flex w-full items-center justify-center rounded-lg bg-[#ea580c] px-3 py-1.5 text-xs font-medium text-white shadow-sm sm:text-sm font-poppins">
-                {locale === "en"
-                  ? `Next departure on ${nextDeparture.dateEn}`
-                  : `Prochain départ le ${nextDeparture.date}`}
+                {locale === "en" ? "Next departures: " : "Prochains départs : "}
+                {nextDeparture.dates[dateIndex][locale === "en" ? "en" : "fr"]}
               </span>
             </div>
           </div>

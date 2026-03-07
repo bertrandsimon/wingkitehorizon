@@ -35,7 +35,7 @@ export default function ContactModal() {
     send: locale === "en" ? "Send" : "Envoyer",
     closeLabel: locale === "en" ? "Close contact form" : "Fermer le formulaire",
     emailLabel: "Email:",
-    telLabel: locale === "en" ? "Phone:" : "Tel:",
+    whatsappLabel: locale === "en" ? "Chat with us on WhatsApp" : "Parlez-nous sur WhatsApp",
   };
 
   const portalTarget = useMemo(() => {
@@ -211,8 +211,14 @@ export default function ContactModal() {
                 {contactInfo.email}
               </div>
               <div>
-                <span className="font-medium text-[#102F77]">{t.telLabel}</span>{" "}
-                {contactInfo.phone}
+                <a
+                  href={contactInfo.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#1da851] px-3 py-1.5 text-sm font-poppins font-medium text-white transition-colors hover:bg-[#189845]"
+                >
+                  {t.whatsappLabel}
+                </a>
               </div>
             </div>
 

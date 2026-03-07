@@ -82,7 +82,7 @@ export default function HeroSection({ slides: slidesProp }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % slides.length);
-    }, 7000);
+    }, 9000);
     return () => clearInterval(interval);
   }, [slides.length]);
 

@@ -37,7 +37,7 @@ export default function Banner() {
 
   return (
     <>
-    <section className="relative w-full h-[400px] sm:h-[500px] overflow-hidden">
+    <section className="relative w-full min-h-[650px] sm:h-[500px] overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -50,13 +50,13 @@ export default function Banner() {
       </div>
 
       {/* Content Grid - Right Side */}
-      <div className="relative h-full max-w-[1260px] mx-auto px-4 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 h-full items-center">
+      <div className="relative h-full min-h-[650px] sm:min-h-0 max-w-[1260px] mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px] lg:min-h-0 lg:h-full items-start lg:items-center">
           {/* Left column - empty for image focus */}
           <div className="hidden lg:block" />
 
           {/* Right column - Content */}
-          <div className="flex flex-col items-start lg:items-end gap-6 py-8 lg:py-16">
+          <div className="flex flex-col items-start lg:items-end gap-6 py-8 pb-10 sm:pb-8 lg:py-16">
             <div className="w-full max-w-[593px]">
               {/* Title (aligned with glass block left edge) */}
               <div className="text-left">

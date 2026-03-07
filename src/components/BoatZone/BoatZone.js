@@ -36,7 +36,7 @@ export default function BoatZone() {
           },
           {
             title: "E-foil",
-            description: "15 min E-foil session per day.",
+            description: "Discovery session included.",
           },
         ]
       : [
@@ -63,7 +63,7 @@ export default function BoatZone() {
           },
           {
             title: "E-foil",
-            description: "15 min de session E-foil par jour.",
+            description: "Session de découverte incluse.",
           },
         ];
 
@@ -72,9 +72,11 @@ export default function BoatZone() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         {/* Left column */}
         <div className="w-full">
-          <TestimonialCarousel />
+          <div className="hidden lg:block">
+            <TestimonialCarousel />
+          </div>
 
-          <div className="flex items-center gap-2 mt-4 mb-2">
+          <div className="flex items-center gap-2 mt-4 mb-2 lg:mt-4">
             <UtensilsCrossed className="w-5 h-5 text-[#102F77]" aria-hidden />
             <span className="text-sm font-bold text-[#102F77] font-poppins">
               {locale === "en" ? "Brunch and snack on board" : "Brunch et petit snack à bord"}

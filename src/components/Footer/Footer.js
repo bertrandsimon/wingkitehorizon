@@ -47,7 +47,9 @@ export default function Footer() {
 
           <div className="flex gap-4 items-center">
             <a
-              href="/"
+              href="https://instagram.com/Rosario_gazgaz"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center w-[28px] h-[32px] text-white/90 hover:text-white transition-colors"
               aria-label="Instagram"
             >
@@ -69,6 +71,15 @@ export default function Footer() {
             {locale === "en"
               ? "2026 Wing Kite Horizon. All rights reserved"
               : "2026 Wing Kite Horizon. Droits réservés"}
+            {" · "}
+            <a
+              href="https://www.linkedin.com/in/bertrand-simon-82a5482/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/80 hover:text-white transition-colors underline underline-offset-2"
+            >
+              {locale === "en" ? "Web creation: Logeen" : "Conception : Logeen"}
+            </a>
           </p>
         </div>
       </div>

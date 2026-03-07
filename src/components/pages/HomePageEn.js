@@ -49,7 +49,7 @@ export default function HomePageEn() {
           <div className="relative z-[10]">
             <Presentation />
           </div>
-          <div className="relative z-[0] -mt-24">
+          <div className="relative z-[0] mt-4 lg:mt-0 lg:-mt-24">
             <BoatZone />
           </div>
           <Banner />
