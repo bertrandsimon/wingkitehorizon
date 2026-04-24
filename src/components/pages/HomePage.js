@@ -24,13 +24,13 @@ export default function HomePage() {
                 <h2 className="text-[#102F77] font-shrikhand text-2xl sm:text-3xl leading-tight">
                   Une croisière sportive où chaque journée compte
                 </h2>
-                <p className="mt-4 text-black/80 font-poppins text-sm sm:text-base leading-relaxed">
+                <p className="mt-4 text-black font-poppins text-sm sm:text-base leading-relaxed">
                   Cette croisière n'est pas une simple balade en mer. C'est une
                   expérience immersive dédiée aux sports de glisse : kitesurf,
                   wingfoil et exploration des plus beaux spots accessibles
                   uniquement en bateau.
                 </p>
-                <p className="mt-4 text-black/80 font-poppins text-sm sm:text-base leading-relaxed">
+                <p className="mt-4 text-black font-poppins text-sm sm:text-base leading-relaxed">
                   <span className="font-semibold text-black">
                     Chaque journée est optimisée pour naviguer.
                   </span>{" "}
@@ -39,7 +39,7 @@ export default function HomePage() {
                   orientations de vent. L'objectif est simple : maximiser le
                   temps sur l'eau.
                 </p>
-                <p className="mt-4 text-black/80 font-poppins text-sm sm:text-base leading-relaxed">
+                <p className="mt-4 text-black font-poppins text-sm sm:text-base leading-relaxed">
                   Et parce qu'on aime la glisse sous toutes ses formes, un
                   e-foil est également disponible à bord pour découvrir les
                   sensations uniques du vol électrique au-dessus de l'eau, même

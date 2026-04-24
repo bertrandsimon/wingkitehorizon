@@ -1,10 +1,10 @@
+import BookNowButton from "@/components/CTAs/BookNowButton";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
-import BookNowButton from "@/components/CTAs/BookNowButton";
 import InternalHero from "@/components/InternalPages/InternalHero";
 import InternalSplitSection from "@/components/InternalPages/InternalSplitSection";
 
-import { SEO, buildMetadata } from "@/lib/seo";
+import { buildMetadata, SEO } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   ...SEO.en["kite-trips"],
@@ -67,7 +67,11 @@ export default function KiteTripsEnPage() {
               "It’s more than a trip: it’s a real adventure. Sessions when it’s windy, sunsets at anchor, and the freedom to move.",
               "Whether you come to progress, to have fun, or to tick off spots, the kite trip format is ideal.",
             ]}
-            bullets={["Trip atmosphere, team spirit", "Optimized water time", "Unforgettable memories"]}
+            bullets={[
+              "Trip atmosphere, team spirit",
+              "Optimized water time",
+              "Unforgettable memories",
+            ]}
           />
 
           <div className="mt-10 sm:mt-12 flex justify-center">
@@ -80,4 +84,3 @@ export default function KiteTripsEnPage() {
     </div>
   );
 }
-

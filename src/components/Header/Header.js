@@ -17,9 +17,7 @@ export default function Header() {
   const forceSticky = !isHomePath(pathname);
   const [isSticky, setIsSticky] = useState(forceSticky);
   const { open: openContact } = useContactModal();
-  const navItems = [
-    ...getNavItems(locale),
-  ];
+  const navItems = [...getNavItems(locale)];
 
   useEffect(() => {
     if (forceSticky) {
@@ -58,7 +56,13 @@ export default function Header() {
         >
           <Link
             href="/"
-            aria-label="Aller à l’accueil"
+            aria-label={
+              locale === "en"
+                ? "Go to home"
+                : locale === "es"
+                  ? "Ir al inicio"
+                  : "Aller à l’accueil"
+            }
             className="absolute inset-0"
             style={{ overflow: "hidden" }}
           >
@@ -87,16 +91,20 @@ export default function Header() {
           <button
             type="button"
             onClick={openContact}
-            className="cursor-pointer bg-black text-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-poppins hover:bg-[#55BAC6] transition-colors"
+            className="cursor-pointer bg-black text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-poppins hover:bg-[#ea580c] transition-colors max-w-[220px]"
           >
-            Contact
+            {locale === "en"
+              ? "Contact"
+              : locale === "es"
+                ? "Contacto"
+                : "Contact"}
           </button>
         </div>
 
         {/* Mobile Menu Button */}
         <button
           type="button"
-          className={`md:hidden p-2 rounded-full transition-colors ${
+          className={`md:hidden p-2 rounded-lg transition-colors ${
             isSticky
               ? "text-black hover:bg-black/5"
               : "text-black bg-white/90 hover:bg-white"
@@ -106,11 +114,9 @@ export default function Header() {
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
         >
-          {isMobileMenuOpen ? (
-            <X className="w-6 h-6" />
-          ) : (
-            <Menu className="w-6 h-6" />
-          )}
+          {isMobileMenuOpen
+            ? <X className="w-6 h-6" />
+            : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
@@ -141,9 +147,13 @@ export default function Header() {
                   openContact();
                   setIsMobileMenuOpen(false);
                 }}
-                className="w-full cursor-pointer bg-black text-white px-4 py-3 rounded-[10px] text-base font-poppins hover:bg-[#55BAC6] transition-colors text-center"
+                className="w-full max-w-[220px] mx-auto cursor-pointer bg-black text-white px-4 py-3 rounded-[10px] text-base font-poppins hover:bg-[#ea580c] transition-colors text-center"
               >
-                Contact
+                {locale === "en"
+                  ? "Contact"
+                  : locale === "es"
+                    ? "Contacto"
+                    : "Contact"}
               </button>
             </div>
           </nav>
@@ -154,9 +164,9 @@ export default function Header() {
 
   return (
     <>
-      {forceSticky ? (
-        <div aria-hidden className="h-[170px] sm:h-[190px]" />
-      ) : null}
+      {forceSticky
+        ? <div aria-hidden className="h-[170px] sm:h-[190px]" />
+        : null}
       {!isSticky && (
         <header className="absolute top-0 left-0 right-0 z-50 pt-2 sm:pt-4 px-2 sm:px-4">
           {renderHeaderContent()}

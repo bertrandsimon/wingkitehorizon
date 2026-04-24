@@ -4,8 +4,8 @@ import {
   ArrowLongLeftIcon,
   ArrowLongRightIcon,
 } from "@heroicons/react/24/outline";
-import { useCallback, useRef } from "react";
 import { usePathname } from "next/navigation";
+import { useCallback, useRef } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { getLocaleFromPathname } from "@/lib/i18n";
 
@@ -28,17 +28,23 @@ function FavoriteFlipCard({ item }) {
         {/* Back */}
         <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-xl bg-[#55BAC6] flex items-center justify-center">
           <div className="flex flex-col items-center justify-center text-center px-6 gap-1">
-            {item.backLine1 ? (
-              <>
-                <p className="text-white text-sm font-medium leading-snug">{item.backLine1}</p>
-                <p className="text-white text-sm font-medium leading-snug">{item.backLine2}</p>
-              </>
-            ) : (
-              <>
-                <p className="text-white text-sm font-medium">{item.backKicker}</p>
-                <p className="text-white text-xl font-bold">{item.backTitle}</p>
-              </>
-            )}
+            {item.backLine1
+              ? <>
+                  <p className="text-white text-sm font-medium leading-snug">
+                    {item.backLine1}
+                  </p>
+                  <p className="text-white text-sm font-medium leading-snug">
+                    {item.backLine2}
+                  </p>
+                </>
+              : <>
+                  <p className="text-white text-sm font-medium">
+                    {item.backKicker}
+                  </p>
+                  <p className="text-white text-xl font-bold">
+                    {item.backTitle}
+                  </p>
+                </>}
           </div>
         </div>
       </div>
@@ -105,56 +111,107 @@ export default function Favorites() {
             backLine2: "Tavernas, villages and authentic encounters.",
           },
         ]
-      : [
-          {
-            id: 1,
-            image: "/images/card-1.jpg",
-            kicker: "Envie de",
-            frontTitle: "Coaching Kite ?",
-            backLine1: "Progressez avec votre coach dédié.",
-            backLine2: "Des sessions adaptées à votre niveau.",
-          },
-          {
-            id: 2,
-            image: "/images/card-2.jpg",
-            kicker: "Envie de",
-            frontTitle: "Coaching Wing ?",
-            backLine1: "Initiez-vous ou perfectionnez le wingfoil.",
-            backLine2: "Un coach expérimenté à vos côtés.",
-          },
-          {
-            id: 3,
-            image: "/images/card-3.jpg",
-            kicker: "Envie de",
-            frontTitle: "Partir en couple ?",
-            backLine1: "Une croisière pour deux.",
-            backLine2: "Des moments intimes sur l'eau.",
-          },
-          {
-            id: 4,
-            image: "/images/card-4.jpg",
-            kicker: "Envie de",
-            frontTitle: "Naviguer en Grèce ?",
-            backLine1: "Cap sur les Cyclades.",
-            backLine2: "Vent, îles et paysages à couper le souffle.",
-          },
-          {
-            id: 5,
-            image: "/images/card-5.jpg",
-            kicker: "Envie de",
-            frontTitle: "Spots secrets ?",
-            backLine1: "Trouvez le bon spot.",
-            backLine2: "Criques cachées et vents idéaux.",
-          },
-          {
-            id: 6,
-            image: "/images/card-6.jpg",
-            kicker: "Envie de",
-            frontTitle: "Vie locale ?",
-            backLine1: "Goûtez à la Grèce vraie.",
-            backLine2: "Tavernes, villages et rencontres authentiques.",
-          },
-        ];
+      : locale === "es"
+        ? [
+            {
+              id: 1,
+              image: "/images/card-1.jpg",
+              kicker: "¿Te apetece",
+              frontTitle: "coaching de kite?",
+              backLine1: "Progresa con tu coach dedicado.",
+              backLine2: "Sesiones adaptadas a tu nivel.",
+            },
+            {
+              id: 2,
+              image: "/images/card-2.jpg",
+              kicker: "¿Te apetece",
+              frontTitle: "coaching de wing?",
+              backLine1: "Aprende o perfecciona el wingfoil.",
+              backLine2: "Un coach con experiencia a tu lado.",
+            },
+            {
+              id: 3,
+              image: "/images/card-3.jpg",
+              kicker: "¿Te apetece",
+              frontTitle: "viajar en pareja?",
+              backLine1: "Un crucero para dos.",
+              backLine2: "Momentos íntimos en el agua.",
+            },
+            {
+              id: 4,
+              image: "/images/card-4.jpg",
+              kicker: "¿Te apetece",
+              frontTitle: "navegar en Grecia?",
+              backLine1: "Rumbo a las Cícladas.",
+              backLine2: "Viento, islas y paisajes increíbles.",
+            },
+            {
+              id: 5,
+              image: "/images/card-5.jpg",
+              kicker: "¿Te apetece",
+              frontTitle: "spots secretos?",
+              backLine1: "Encuentra el spot adecuado.",
+              backLine2: "Calas escondidas y vientos ideales.",
+            },
+            {
+              id: 6,
+              image: "/images/card-6.jpg",
+              kicker: "¿Te apetece",
+              frontTitle: "vida local?",
+              backLine1: "Descubre la Grecia auténtica.",
+              backLine2: "Tabernas, pueblos y encuentros reales.",
+            },
+          ]
+        : [
+            {
+              id: 1,
+              image: "/images/card-1.jpg",
+              kicker: "Envie de",
+              frontTitle: "Coaching Kite ?",
+              backLine1: "Progressez avec votre coach dédié.",
+              backLine2: "Des sessions adaptées à votre niveau.",
+            },
+            {
+              id: 2,
+              image: "/images/card-2.jpg",
+              kicker: "Envie de",
+              frontTitle: "Coaching Wing ?",
+              backLine1: "Initiez-vous ou perfectionnez le wingfoil.",
+              backLine2: "Un coach expérimenté à vos côtés.",
+            },
+            {
+              id: 3,
+              image: "/images/card-3.jpg",
+              kicker: "Envie de",
+              frontTitle: "Partir en couple ?",
+              backLine1: "Une croisière pour deux.",
+              backLine2: "Des moments intimes sur l'eau.",
+            },
+            {
+              id: 4,
+              image: "/images/card-4.jpg",
+              kicker: "Envie de",
+              frontTitle: "Naviguer en Grèce ?",
+              backLine1: "Cap sur les Cyclades.",
+              backLine2: "Vent, îles et paysages à couper le souffle.",
+            },
+            {
+              id: 5,
+              image: "/images/card-5.jpg",
+              kicker: "Envie de",
+              frontTitle: "Spots secrets ?",
+              backLine1: "Trouvez le bon spot.",
+              backLine2: "Criques cachées et vents idéaux.",
+            },
+            {
+              id: 6,
+              image: "/images/card-6.jpg",
+              kicker: "Envie de",
+              frontTitle: "Vie locale ?",
+              backLine1: "Goûtez à la Grèce vraie.",
+              backLine2: "Tavernes, villages et rencontres authentiques.",
+            },
+          ];
 
   const scrollByOneCard = useCallback((direction) => {
     const track = trackRef.current;
@@ -197,7 +254,13 @@ export default function Favorites() {
               type="button"
               onClick={() => scrollByOneCard("left")}
               className={`flex cursor-pointer z-20 p-2 ${arrowColor} hover:text-[#55BAC6] transition-colors items-center h-full mr-2 sm:mr-4`}
-              aria-label="Previous"
+              aria-label={
+                locale === "en"
+                  ? "Previous"
+                  : locale === "es"
+                    ? "Anterior"
+                    : "Précédent"
+              }
             >
               <ArrowLongLeftIcon className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
@@ -223,7 +286,13 @@ export default function Favorites() {
               type="button"
               onClick={() => scrollByOneCard("right")}
               className={`flex cursor-pointer z-20 p-2 ${arrowColor} hover:text-[#55BAC6] transition-colors items-center h-full ml-2 sm:ml-4`}
-              aria-label="Next"
+              aria-label={
+                locale === "en"
+                  ? "Next"
+                  : locale === "es"
+                    ? "Siguiente"
+                    : "Suivant"
+              }
             >
               <ArrowLongRightIcon className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>

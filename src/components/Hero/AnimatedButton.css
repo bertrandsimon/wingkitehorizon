@@ -27,7 +27,7 @@
   position: absolute;
   inset: 0;
   border-radius: 60px;
-  background: #55BAC6;
+  background: #55bac6;
   opacity: 0;
   transition: 0.5s;
 }
@@ -39,7 +39,7 @@
   width: 100%;
   height: 100%;
   border-radius: 60px;
-  background: #55BAC6;
+  background: #55bac6;
   transition: 0.5s;
   filter: blur(15px);
   z-index: -1;

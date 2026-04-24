@@ -1,11 +1,11 @@
 import Image from "next/image";
+import BookNowButton from "@/components/CTAs/BookNowButton";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
-import BookNowButton from "@/components/CTAs/BookNowButton";
 import InternalHero from "@/components/InternalPages/InternalHero";
 import InternalSplitSection from "@/components/InternalPages/InternalSplitSection";
 
-import { SEO, buildMetadata } from "@/lib/seo";
+import { buildMetadata, SEO } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   ...SEO.en.concept,
@@ -235,4 +235,3 @@ export default function ConceptEnPage() {
     </div>
   );
 }
-

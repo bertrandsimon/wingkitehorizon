@@ -43,32 +43,59 @@ export default function HeroSection({ slides: slidesProp }) {
             taglineLine2: "at your pace",
           },
         ]
-      : [
-          {
-            image: "/images/slider1.jpg",
-            title1: "Croisière coaching",
-            title2: "kitesurf & wingsurf",
-            taglineLine1: "Votre aventure",
-            taglineEmphasis: "inoubliable",
-            taglineLine2: "commence ici",
-          },
-          {
-            image: "/images/slider2.jpg",
-            title1: "Naviguer en Grèce",
-            title2: "îles, criques & vent",
-            taglineLine1: "Dépaysement",
-            taglineEmphasis: "garanti",
-            taglineLine2: "chaque jour",
-          },
-          {
-            image: "/images/slider3.jpg",
-            title1: "Kite & Wing",
-            title2: "apprendre & progresser",
-            taglineLine1: "Coaching",
-            taglineEmphasis: "sur-mesure",
-            taglineLine2: "à votre rythme",
-          },
-        ]);
+      : locale === "es"
+        ? [
+            {
+              image: "/images/slider1.jpg",
+              title1: "Crucero con coaching",
+              title2: "kite y wingsurf",
+              taglineLine1: "Tu aventura",
+              taglineEmphasis: "inolvidable",
+              taglineLine2: "empieza aquí",
+            },
+            {
+              image: "/images/slider2.jpg",
+              title1: "Navegar en Grecia",
+              title2: "islas, calas y viento",
+              taglineLine1: "Cambio de aires",
+              taglineEmphasis: "garantizado",
+              taglineLine2: "cada día",
+            },
+            {
+              image: "/images/slider3.jpg",
+              title1: "Kite y Wing",
+              title2: "aprender y progresar",
+              taglineLine1: "Coaching",
+              taglineEmphasis: "a medida",
+              taglineLine2: "a tu ritmo",
+            },
+          ]
+        : [
+            {
+              image: "/images/slider1.jpg",
+              title1: "Croisière coaching",
+              title2: "kitesurf & wingsurf",
+              taglineLine1: "Votre aventure",
+              taglineEmphasis: "inoubliable",
+              taglineLine2: "commence ici",
+            },
+            {
+              image: "/images/slider2.jpg",
+              title1: "Naviguer en Grèce",
+              title2: "îles, criques & vent",
+              taglineLine1: "Dépaysement",
+              taglineEmphasis: "garanti",
+              taglineLine2: "chaque jour",
+            },
+            {
+              image: "/images/slider3.jpg",
+              title1: "Kite & Wing",
+              title2: "apprendre & progresser",
+              taglineLine1: "Coaching",
+              taglineEmphasis: "sur-mesure",
+              taglineLine2: "à votre rythme",
+            },
+          ]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {

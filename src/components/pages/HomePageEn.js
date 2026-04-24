@@ -24,12 +24,12 @@ export default function HomePageEn() {
                 <h2 className="text-[#102F77] font-shrikhand text-2xl sm:text-3xl leading-tight">
                   A sport cruise where every day counts
                 </h2>
-                <p className="mt-4 text-black/80 font-poppins text-sm font-normal leading-[192%]">
+                <p className="mt-4 text-black font-poppins text-sm font-normal leading-[192%]">
                   This cruise isn't just a boat trip. It's an immersive
                   experience dedicated to board sports: kitesurfing, wingfoiling
                   and exploring the most beautiful spots only reachable by boat.
                 </p>
-                <p className="mt-4 text-black/80 font-poppins text-sm font-normal leading-[192%]">
+                <p className="mt-4 text-black font-poppins text-sm font-normal leading-[192%]">
                   <span className="font-semibold text-black">
                     Every day is designed for riding.
                   </span>{" "}
@@ -37,7 +37,7 @@ export default function HomePageEn() {
                   the windiest areas and the best wind angles. The goal is
                   simple: maximize time on the water.
                 </p>
-                <p className="mt-4 text-black/80 font-poppins text-sm font-normal leading-[192%]">
+                <p className="mt-4 text-black font-poppins text-sm font-normal leading-[192%]">
                   And because we love board sports in every form, an e-foil is
                   also available on board to discover the unique feeling of
                   electric flight above the water, even when the wind takes a

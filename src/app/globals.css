@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #EFEEF1;
+  --background: #efeef1;
   --foreground: #111111;
   --font-roboto: var(--font-roboto);
   --font-shrikhand: var(--font-shrikhand);
@@ -61,10 +61,9 @@ body {
   animation-name: fadeInRightSoft;
 }
 
-
 /* Light mode */
 [data-theme="light"] {
-  --background: #EFEEF1;
+  --background: #efeef1;
 }
 
 /* 3D Flip Card Animation */

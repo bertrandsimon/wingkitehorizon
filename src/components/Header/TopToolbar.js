@@ -1,12 +1,13 @@
 "use client";
 
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "@/contexts/ThemeContext";
 import { contactInfo } from "@/lib/constants";
 import { getLocaleFromPathname, getLocaleSwitchHref } from "@/lib/i18n";
-import { FlagFR, FlagUK } from "./FlagIcon";
+import { FlagES, FlagFR, FlagUK } from "./FlagIcon";
 
 export default function TopToolbar({ isSticky = false }) {
   const pathname = usePathname();
@@ -17,7 +18,18 @@ export default function TopToolbar({ isSticky = false }) {
   const spacingClass = isSticky ? "mb-2 sm:mb-4" : "";
 
   const whatsappLabel =
-    locale === "en" ? "Chat with us on WhatsApp" : "Parlez-nous sur WhatsApp";
+    locale === "en"
+      ? "Chat with us on WhatsApp"
+      : locale === "es"
+        ? "Chatea con nosotros en WhatsApp"
+        : "Parlez-nous sur WhatsApp";
+
+  const emailLabel =
+    locale === "en"
+      ? "Contact by email"
+      : locale === "es"
+        ? "Contactar por correo"
+        : "Nous contacter par email";
 
   return (
     <div className="w-full bg-transparent py-1 sm:py-2 pb-2 sm:pb-4">
@@ -43,33 +55,61 @@ export default function TopToolbar({ isSticky = false }) {
             <span className="hidden sm:inline">{whatsappLabel}</span>
             <span className="sm:hidden">WhatsApp</span>
           </a>
-          <div className={`hidden sm:block h-4 w-px shrink-0 ${dividerColor}`}></div>
+          <div
+            className={`hidden sm:block h-4 w-px shrink-0 ${dividerColor}`}
+          ></div>
           <a
             href={`mailto:${contactInfo.email}`}
             className={`inline-flex items-center gap-1.5 sm:gap-3 text-xs ${textColor} font-poppins cursor-pointer hover:underline hover:decoration-current/60 underline-offset-4 shrink-0 min-w-0`}
-            aria-label={locale === "en" ? "Contact by email" : "Nous contacter par email"}
+            aria-label={emailLabel}
           >
             <EnvelopeIcon className={`w-3 h-3 sm:w-4 sm:h-4 shrink-0`} />
-            <span className="hidden sm:inline truncate max-w-[140px] lg:max-w-none">{contactInfo.email}</span>
+            <span className="hidden sm:inline truncate max-w-[140px] lg:max-w-none">
+              {contactInfo.email}
+            </span>
           </a>
-          <div className={`hidden sm:block h-4 w-px shrink-0 ${dividerColor}`}></div>
-          {locale === "en" ? (
-            <Link
-              href={getLocaleSwitchHref(pathname, "fr")}
-              aria-label="Version française"
-              className={`p-0.5 rounded-md shrink-0 font-poppins transition-colors ${textColor} hover:bg-black/5`}
-            >
-              <FlagFR className="w-4 h-4" />
-            </Link>
-          ) : (
-            <Link
-              href={getLocaleSwitchHref(pathname, "en")}
-              aria-label="English version"
-              className={`p-0.5 rounded-md shrink-0 font-poppins transition-colors ${textColor} hover:bg-black/5`}
-            >
-              <FlagUK className="w-4 h-4" />
-            </Link>
-          )}
+          <div
+            className={`hidden sm:block h-4 w-px shrink-0 ${dividerColor}`}
+          ></div>
+          <div className="inline-flex items-center gap-1.5 shrink-0">
+            {locale !== "fr"
+              ? <Link
+                  href={getLocaleSwitchHref(pathname, "fr")}
+                  aria-label="Version française"
+                  className={`p-0.5 rounded-md font-poppins transition-colors ${textColor} hover:bg-black/5`}
+                >
+                  <FlagFR className="w-4 h-4" />
+                </Link>
+              : null}
+            {locale !== "en"
+              ? <Link
+                  href={getLocaleSwitchHref(pathname, "en")}
+                  aria-label="English version"
+                  className={`p-0.5 rounded-md font-poppins transition-colors ${textColor} hover:bg-black/5`}
+                >
+                  <FlagUK className="w-4 h-4" />
+                </Link>
+              : null}
+            {locale !== "es"
+              ? <Link
+                  href={getLocaleSwitchHref(pathname, "es")}
+                  aria-label="Versión en español"
+                  className={`p-0.5 rounded-md font-poppins transition-colors ${textColor} hover:bg-black/5`}
+                >
+                  <FlagES className="w-4 h-4" />
+                </Link>
+              : null}
+          </div>
+          <div
+            className={`hidden sm:block h-4 w-px shrink-0 ${dividerColor}`}
+          ></div>
+          <Image
+            src="/images/airush2x.png"
+            alt="Airush"
+            width={102}
+            height={31}
+            className="shrink-0 object-contain"
+          />
         </div>
       </div>
     </div>

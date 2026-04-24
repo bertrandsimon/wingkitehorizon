@@ -5,10 +5,10 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3845',
-        pathname: '/assets/**',
+        protocol: "http",
+        hostname: "localhost",
+        port: "3845",
+        pathname: "/assets/**",
       },
     ],
     unoptimized: true, // Allow unoptimized images from localhost

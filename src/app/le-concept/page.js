@@ -1,11 +1,11 @@
 import Image from "next/image";
+import BookNowButton from "@/components/CTAs/BookNowButton";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
-import BookNowButton from "@/components/CTAs/BookNowButton";
 import InternalHero from "@/components/InternalPages/InternalHero";
 import InternalSplitSection from "@/components/InternalPages/InternalSplitSection";
 
-import { SEO, buildMetadata } from "@/lib/seo";
+import { buildMetadata, SEO } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   ...SEO.fr.concept,
@@ -93,7 +93,9 @@ export default function LeConceptPage() {
 
                 <div className="mt-5 rounded-[10px] bg-white/70 p-4 border border-black/5">
                   <p className="text-black/90 font-poppins text-sm sm:text-base leading-relaxed">
-                    <span className="font-semibold">Le principe est simple :</span>{" "}
+                    <span className="font-semibold">
+                      Le principe est simple :
+                    </span>{" "}
                     vivre, naviguer et progresser tous les jours dans un cadre
                     exceptionnel… ou simplement savourer l’aventure et la magie
                     des lieux.

@@ -46,6 +46,32 @@ export const testimonialsEn = [
   },
 ];
 
+export const testimonialsEs = [
+  {
+    id: 1,
+    name: "Camille R.",
+    role: "Kitesurf (intermedio)",
+    text: "Experiencia increíble: coaching muy claro, el spot adecuado en el momento perfecto y un ambiente genial a bordo. En 5 días desbloqueé mis transiciones y gané confianza.",
+    photo: "/images/avatar1.jpg",
+  },
+  {
+    id: 2,
+    name: "Marion M.",
+    role: "Wingfoil (principiante)",
+    text: "Empecé wingfoil desde cero: el material adecuado, briefings claros, feedback en vídeo… La progresión es rápida y navegas mucho. El formato crucero es simplemente perfecto.",
+    photo: "/images/avatar2.jpg",
+  },
+  {
+    id: 3,
+    name: "Greg T.",
+    role: "Kite y Wing",
+    text: "Entre las sesiones, la navegación y la vida en el catamarán, todo fluye. Un spot nuevo cada día y un coaching realmente personalizado. Recomendado al 100%.",
+    photo: "/images/avatar3.jpg",
+  },
+];
+
 export function getTestimonials(locale) {
-  return locale === "en" ? testimonialsEn : testimonialsFr;
+  if (locale === "en") return testimonialsEn;
+  if (locale === "es") return testimonialsEs;
+  return testimonialsFr;
 }

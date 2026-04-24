@@ -54,3 +54,16 @@ export function FlagUK({ className = "w-4 h-4" }) {
     </svg>
   );
 }
+
+export function FlagES({ className = "w-4 h-4" }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={`${className} rounded-md overflow-hidden shrink-0`}
+      aria-hidden="true"
+    >
+      <rect width="24" height="24" fill="#AA151B" />
+      <rect y="6" width="24" height="12" fill="#F1BF00" />
+    </svg>
+  );
+}

@@ -1,8 +1,8 @@
 "use client";
 
-import { ThemeProvider } from "@/contexts/ThemeContext";
-import { ContactModalProvider } from "@/contexts/ContactModalContext";
 import ContactModal from "@/components/ContactModal/ContactModal";
+import { ContactModalProvider } from "@/contexts/ContactModalContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 export default function Providers({ children }) {
   return (
@@ -14,4 +14,3 @@ export default function Providers({ children }) {
     </ThemeProvider>
   );
 }
-

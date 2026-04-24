@@ -10,8 +10,8 @@ export default function AnimatedMenu() {
 
   return (
     <ul className="animated-menu-list">
-      {menuItems.map((item, index) => (
-        <li key={index} className="animated-menu-item">
+      {menuItems.map((item) => (
+        <li key={item.initial} className="animated-menu-item">
           <span className="animated-menu-text">{item.initial}</span>
           <span className="animated-menu-title">{item.hover}</span>
         </li>

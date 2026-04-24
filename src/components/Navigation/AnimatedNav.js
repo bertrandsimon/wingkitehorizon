@@ -1,4 +1,4 @@
-import { Home, Video, Camera, Share2, Heart } from "lucide-react";
+import { Camera, Heart, Home, Share2, Video } from "lucide-react";
 import "./AnimatedNav.css";
 
 export default function AnimatedNav() {
@@ -12,10 +12,10 @@ export default function AnimatedNav() {
 
   return (
     <ul className="animated-nav-list">
-      {navItems.map((item, index) => {
+      {navItems.map((item) => {
         const Icon = item.icon;
         return (
-          <li key={index} className="animated-nav-item">
+          <li key={item.title} className="animated-nav-item">
             <span className="animated-nav-icon">
               <Icon size={28} />
             </span>

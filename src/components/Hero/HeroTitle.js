@@ -80,7 +80,10 @@ export default function HeroTitle({ slide }) {
                 animationTimingFunction: "ease",
               }}
             >
-              <BookNowButton variant="slide" className="w-full px-7 py-3 text-sm sm:text-base" />
+              <BookNowButton
+                variant="slide"
+                className="px-7 py-3 text-sm sm:text-base"
+              />
             </div>
             <div
               className="animate__animated animate__fadeInUp"
@@ -90,9 +93,17 @@ export default function HeroTitle({ slide }) {
                 animationTimingFunction: "ease",
               }}
             >
-              <span className="inline-flex w-full items-center justify-center rounded-lg bg-[#ea580c] px-3 py-1.5 text-xs font-medium text-white shadow-sm sm:text-sm font-poppins">
-                {locale === "en" ? "Next departures: " : "Prochains départs : "}
-                {nextDeparture.dates[dateIndex][locale === "en" ? "en" : "fr"]}
+              <span className="inline-flex items-center justify-center rounded-lg bg-[#ea580c] px-3 py-1.5 text-xs font-medium text-white shadow-sm sm:text-sm font-poppins whitespace-nowrap">
+                {locale === "en"
+                  ? "Next departures: "
+                  : locale === "es"
+                    ? "Próximas salidas: "
+                    : "Prochains départs : "}
+                {
+                  nextDeparture.dates[dateIndex][
+                    locale === "en" ? "en" : locale === "es" ? "es" : "fr"
+                  ]
+                }
               </span>
             </div>
           </div>

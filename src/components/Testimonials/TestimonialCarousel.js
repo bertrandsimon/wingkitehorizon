@@ -6,8 +6,8 @@ import {
   ArrowLongRightIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { getLocaleFromPathname } from "@/lib/i18n";
 import { getTestimonials } from "@/lib/testimonials";
@@ -78,14 +78,26 @@ export default function TestimonialCarousel() {
                 <button
                   onClick={prevTestimonial}
                   className={`${arrowColor} ${arrowHoverColor} transition-colors cursor-pointer`}
-                  aria-label="Previous testimonial"
+                  aria-label={
+                    locale === "en"
+                      ? "Previous testimonial"
+                      : locale === "es"
+                        ? "Testimonio anterior"
+                        : "Témoignage précédent"
+                  }
                 >
                   <ArrowLongLeftIcon className="w-4 h-4" />
                 </button>
                 <button
                   onClick={nextTestimonial}
                   className={`${arrowColor} ${arrowHoverColor} transition-colors cursor-pointer`}
-                  aria-label="Next testimonial"
+                  aria-label={
+                    locale === "en"
+                      ? "Next testimonial"
+                      : locale === "es"
+                        ? "Siguiente testimonio"
+                        : "Témoignage suivant"
+                  }
                 >
                   <ArrowLongRightIcon className="w-4 h-4" />
                 </button>

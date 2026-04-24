@@ -1,5 +1,5 @@
 import HomePageEn from "@/components/pages/HomePageEn";
-import { SEO, buildMetadata } from "@/lib/seo";
+import { buildMetadata, SEO } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   ...SEO.en.home,

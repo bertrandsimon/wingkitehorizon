@@ -31,7 +31,13 @@ export default function Footer() {
             <div className="mt-4">
               <Link
                 href={getHomeHref(locale)}
-                aria-label={locale === "en" ? "Back to home" : "Retour à l’accueil"}
+                aria-label={
+                  locale === "en"
+                    ? "Back to home"
+                    : locale === "es"
+                      ? "Volver al inicio"
+                      : "Retour à l’accueil"
+                }
                 className="inline-flex"
               >
                 <Image
@@ -70,7 +76,9 @@ export default function Footer() {
           <p className="text-white/80 text-xs sm:text-sm font-poppins text-center">
             {locale === "en"
               ? "2026 Wing Kite Horizon. All rights reserved"
-              : "2026 Wing Kite Horizon. Droits réservés"}
+              : locale === "es"
+                ? "2026 Wing Kite Horizon. Todos los derechos reservados"
+                : "2026 Wing Kite Horizon. Droits réservés"}
             {" · "}
             <a
               href="https://www.linkedin.com/in/bertrand-simon-82a5482/"
@@ -78,7 +86,11 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-white/80 hover:text-white transition-colors underline underline-offset-2"
             >
-              {locale === "en" ? "Web creation: Logeen" : "Conception : Logeen"}
+              {locale === "en"
+                ? "Web creation: Logeen"
+                : locale === "es"
+                  ? "Creación web: Logeen"
+                  : "Conception : Logeen"}
             </a>
           </p>
         </div>

@@ -1,10 +1,10 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
-import { usePathname } from "next/navigation";
-import { contactInfo } from "@/lib/constants";
 import { useContactModal } from "@/contexts/ContactModalContext";
+import { contactInfo } from "@/lib/constants";
 import { getLocaleFromPathname } from "@/lib/i18n";
 
 const FORMSUBMIT_AJAX = "https://formsubmit.co/ajax";
@@ -16,26 +16,71 @@ export default function ContactModal() {
   const [status, setStatus] = useState("idle"); // idle | submitting | success | error
 
   const t = {
-    title: locale === "en" ? "Let's talk about your cruise" : "Parlons de votre croisière",
-    subtitle: locale === "en"
-      ? "Tell us your kite/wing level, dates and preferences. We'll reply quickly."
-      : "Dites-nous votre niveau en kite/wing, vos dates et vos envies. On vous répond rapidement.",
-    nameLabel: locale === "en" ? "Name" : "Nom",
-    namePlaceholder: locale === "en" ? "Your name" : "Votre nom",
-    emailPlaceholder: locale === "en" ? "you@example.com" : "vous@exemple.com",
-    messageLabel: locale === "en" ? "Message" : "Message",
-    messagePlaceholder: locale === "en"
-      ? "Your level, dates, goals (kite/wing), etc."
-      : "Votre niveau, vos dates, vos objectifs (kite/wing), etc.",
-    success: locale === "en" ? "Message sent! Thank you." : "Message envoyé ! Merci.",
-    error: locale === "en"
-      ? "Error. Please try again or contact us by email."
-      : "Erreur. Réessayez ou contactez-nous par email.",
-    sending: locale === "en" ? "Sending..." : "Envoi...",
-    send: locale === "en" ? "Send" : "Envoyer",
-    closeLabel: locale === "en" ? "Close contact form" : "Fermer le formulaire",
+    title:
+      locale === "en"
+        ? "Let's talk about your cruise"
+        : locale === "es"
+          ? "Hablemos de tu crucero"
+          : "Parlons de votre croisière",
+    subtitle:
+      locale === "en"
+        ? "Tell us your kite/wing level, dates and preferences. We'll reply quickly."
+        : locale === "es"
+          ? "Cuéntanos tu nivel en kite/wing, tus fechas y tus preferencias. Te respondemos rápido."
+          : "Dites-nous votre niveau en kite/wing, vos dates et vos envies. On vous répond rapidement.",
+    nameLabel: locale === "en" ? "Name" : locale === "es" ? "Nombre" : "Nom",
+    namePlaceholder:
+      locale === "en"
+        ? "Your name"
+        : locale === "es"
+          ? "Tu nombre"
+          : "Votre nom",
+    emailPlaceholder:
+      locale === "en"
+        ? "you@example.com"
+        : locale === "es"
+          ? "tu@ejemplo.com"
+          : "vous@exemple.com",
+    messageLabel:
+      locale === "en" ? "Message" : locale === "es" ? "Mensaje" : "Message",
+    messagePlaceholder:
+      locale === "en"
+        ? "Your level, dates, goals (kite/wing), etc."
+        : locale === "es"
+          ? "Tu nivel, tus fechas, tus objetivos (kite/wing), etc."
+          : "Votre niveau, vos dates, vos objectifs (kite/wing), etc.",
+    success:
+      locale === "en"
+        ? "Message sent! Thank you."
+        : locale === "es"
+          ? "Mensaje enviado. ¡Gracias!"
+          : "Message envoyé ! Merci.",
+    error:
+      locale === "en"
+        ? "Error. Please try again or contact us by email."
+        : locale === "es"
+          ? "Error. Inténtalo de nuevo o contáctanos por correo."
+          : "Erreur. Réessayez ou contactez-nous par email.",
+    sending:
+      locale === "en"
+        ? "Sending..."
+        : locale === "es"
+          ? "Enviando..."
+          : "Envoi...",
+    send: locale === "en" ? "Send" : locale === "es" ? "Enviar" : "Envoyer",
+    closeLabel:
+      locale === "en"
+        ? "Close contact form"
+        : locale === "es"
+          ? "Cerrar formulario de contacto"
+          : "Fermer le formulaire",
     emailLabel: "Email:",
-    whatsappLabel: locale === "en" ? "Chat with us on WhatsApp" : "Parlez-nous sur WhatsApp",
+    whatsappLabel:
+      locale === "en"
+        ? "Chat with us on WhatsApp"
+        : locale === "es"
+          ? "Chatea con nosotros en WhatsApp"
+          : "Parlez-nous sur WhatsApp",
   };
 
   const portalTarget = useMemo(() => {
@@ -74,14 +119,19 @@ export default function ContactModal() {
     const subject =
       locale === "en"
         ? `[Wing Kite Horizon] Contact from ${name}`
-        : `[Wing Kite Horizon] Contact de ${name}`;
+        : locale === "es"
+          ? `[Wing Kite Horizon] Contacto de ${name}`
+          : `[Wing Kite Horizon] Contact de ${name}`;
     const payload = { name, email, message, _subject: subject };
     try {
       const results = await Promise.all(
         contactInfo.formRecipients.map((recipient) =>
           fetch(`${FORMSUBMIT_AJAX}/${recipient}`, {
             method: "POST",
-            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
             body: JSON.stringify(payload),
           }).then((r) => r.json()),
         ),
@@ -128,17 +178,14 @@ export default function ContactModal() {
           <button
             type="button"
             onClick={close}
-            className="shrink-0 rounded-full w-9 h-9 flex items-center justify-center text-black/70 hover:bg-black/5 transition-colors"
+            className="shrink-0 rounded-lg w-9 h-9 flex items-center justify-center text-black/70 hover:bg-black/5 transition-colors"
             aria-label={t.closeLabel}
           >
             <span className="text-lg leading-none">×</span>
           </button>
         </div>
 
-        <form
-          className="px-5 sm:px-6 pb-5 sm:pb-6"
-          onSubmit={handleSubmit}
-        >
+        <form className="px-5 sm:px-6 pb-5 sm:pb-6" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="flex flex-col gap-1">
               <label
@@ -199,15 +246,15 @@ export default function ContactModal() {
             </p>
           )}
           {status === "error" && (
-            <p className="mt-3 font-poppins text-sm text-red-600">
-              {t.error}
-            </p>
+            <p className="mt-3 font-poppins text-sm text-red-600">{t.error}</p>
           )}
 
           <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div className="font-poppins text-sm text-gray-600">
               <div>
-                <span className="font-medium text-[#102F77]">{t.emailLabel}</span>{" "}
+                <span className="font-medium text-[#102F77]">
+                  {t.emailLabel}
+                </span>{" "}
                 {contactInfo.email}
               </div>
               <div>
@@ -225,7 +272,7 @@ export default function ContactModal() {
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="h-10 px-5 rounded-lg bg-[#ea580c] text-white font-poppins font-medium text-sm shadow-sm hover:bg-[#c2410b] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+              className="h-10 w-full sm:w-auto max-w-[220px] px-5 rounded-lg bg-[#ea580c] text-white font-poppins font-medium text-sm shadow-sm hover:bg-[#ea580c] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {status === "submitting" ? t.sending : t.send}
             </button>
@@ -236,4 +283,3 @@ export default function ContactModal() {
     portalTarget,
   );
 }
-

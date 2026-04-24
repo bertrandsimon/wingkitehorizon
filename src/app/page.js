@@ -1,5 +1,5 @@
 import HomePage from "@/components/pages/HomePage";
-import { SEO, buildMetadata } from "@/lib/seo";
+import { buildMetadata, SEO } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   ...SEO.fr.home,

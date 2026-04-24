@@ -11,7 +11,7 @@ export default function Title({
 }) {
   const { theme } = useTheme();
   const textColor = theme === "light" ? "text-black" : "text-white";
-  const descriptionColor = theme === "light" ? "text-gray-600" : "text-[#9ea0a9]";
+  const descriptionColor = theme === "light" ? "text-black" : "text-white";
   const title2ColorClass = title2ClassName ? "" : textColor;
 
   return (
@@ -19,18 +19,24 @@ export default function Title({
       className={`flex flex-col sm:flex-row items-start sm:items-center justify-between ${containerPaddingClassName} gap-4 sm:gap-6`}
     >
       <div className="font-poppins">
-        <p className={`font-light text-sm sm:text-sm lg:text-lg ${textColor}`}>{title1}</p>
+        <p className={`font-light text-sm sm:text-sm lg:text-lg ${textColor}`}>
+          {title1}
+        </p>
         <p
           className={`font-light text-2xl sm:text-3xl lg:text-4xl font-display ${title2ColorClass} ${title2ClassName}`}
         >
           {title2}
         </p>
       </div>
-      <div className="w-full sm:w-auto sm:max-w-[400px] lg:max-w-[500px]">
-        <p className={`text-xs sm:text-sm ${descriptionColor} font-light font-poppins`}>
-          {description}
-        </p>
-      </div>
+      {description
+        ? <div className="w-full sm:w-auto sm:max-w-[400px] lg:max-w-[500px]">
+            <p
+              className={`text-xs sm:text-sm ${descriptionColor} font-light font-poppins`}
+            >
+              {description}
+            </p>
+          </div>
+        : null}
     </div>
   );
 }

@@ -1,11 +1,11 @@
 #!/usr/bin/env node
+import { readdirSync, renameSync, statSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 /**
  * Optimize JPG images above 500KB to 70% quality
  * Run: node scripts/optimize-images.mjs
  */
-import { readdirSync, statSync, renameSync } from "fs";
-import { join, dirname } from "path";
-import { fileURLToPath } from "url";
 import sharp from "sharp";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -38,16 +38,16 @@ async function main() {
     return;
   }
 
-  console.log(`Found ${files.length} image(s) above 500KB to optimize (quality ${QUALITY}%):\n`);
+  console.log(
+    `Found ${files.length} image(s) above 500KB to optimize (quality ${QUALITY}%):\n`,
+  );
 
   for (const { path: filePath, size } of files) {
-    const relPath = filePath.replace(join(__dirname, "..") + "/", "");
+    const relPath = filePath.replace(`${join(__dirname, "..")}/`, "");
     const sizeKB = (size / 1024).toFixed(1);
     try {
-      const outputPath = filePath + ".tmp";
-      await sharp(filePath)
-        .jpeg({ quality: QUALITY })
-        .toFile(outputPath);
+      const outputPath = `${filePath}.tmp`;
+      await sharp(filePath).jpeg({ quality: QUALITY }).toFile(outputPath);
 
       const newSize = statSync(outputPath).size;
       const newSizeKB = (newSize / 1024).toFixed(1);

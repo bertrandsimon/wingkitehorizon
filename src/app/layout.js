@@ -31,13 +31,27 @@ export const metadata = {
   },
   description:
     "Croisière sportive kitesurf et wingfoil dans les Cyclades. Coaching personnalisé, spots secrets, vie à bord. Réservez votre aventure en mer.",
-  keywords: ["kitesurf Grèce", "wingfoil Cyclades", "croisière kitesurf", "coaching wingfoil", "Paros", "Naxos"],
+  keywords: [
+    "kitesurf Grèce",
+    "wingfoil Cyclades",
+    "croisière kitesurf",
+    "coaching wingfoil",
+    "Paros",
+    "Naxos",
+  ],
   authors: [{ name: "Wing Kite Horizon", url: SITE_URL }],
   creator: "Wing Kite Horizon",
   openGraph: {
     type: "website",
     siteName: "Wing Kite Horizon",
-    images: [{ url: "/images/concept.jpg", width: 1200, height: 630, alt: "Wing Kite Horizon" }],
+    images: [
+      {
+        url: "/images/concept.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Wing Kite Horizon",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

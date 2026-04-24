@@ -37,7 +37,7 @@ export default function InternalSplitSection({
             {paragraphs.map((p) => (
               <p
                 key={p}
-                className="mt-3 text-black/80 font-poppins text-sm sm:text-base leading-relaxed"
+                className="mt-3 text-black font-poppins text-sm sm:text-base leading-relaxed"
               >
                 {p}
               </p>
@@ -48,7 +48,7 @@ export default function InternalSplitSection({
                   {bullets.map((b) => (
                     <li
                       key={b}
-                      className="text-black/80 font-poppins text-sm sm:text-base leading-relaxed"
+                      className="text-black font-poppins text-sm sm:text-base leading-relaxed"
                     >
                       {b}
                     </li>

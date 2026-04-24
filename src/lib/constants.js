@@ -23,8 +23,16 @@ export const images = {
 // Next departures (update when scheduling new trips) - displayed in alternance
 export const nextDeparture = {
   dates: [
-    { fr: "Du 27 juin au 4 juillet", en: "June 27 to July 4" },
-    { fr: "Du 29 août au 5 septembre", en: "August 29 to September 5" },
+    {
+      fr: "Du 27 juin au 4 juillet",
+      en: "June 27 to July 4",
+      es: "Del 27 de junio al 4 de julio",
+    },
+    {
+      fr: "Du 29 août au 5 septembre",
+      en: "August 29 to September 5",
+      es: "Del 29 de agosto al 5 de septiembre",
+    },
   ],
 };
 

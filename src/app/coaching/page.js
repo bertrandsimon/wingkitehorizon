@@ -1,10 +1,11 @@
+import Image from "next/image";
+import BookNowButton from "@/components/CTAs/BookNowButton";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
-import BookNowButton from "@/components/CTAs/BookNowButton";
 import InternalHero from "@/components/InternalPages/InternalHero";
 import InternalSplitSection from "@/components/InternalPages/InternalSplitSection";
 
-import { SEO, buildMetadata } from "@/lib/seo";
+import { buildMetadata, SEO } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   ...SEO.fr.coaching,
@@ -25,6 +26,38 @@ export default function CoachingPage() {
             imageSrc="/images/coaching.jpg"
             imageAlt="Coaching kitesurf et wingfoil"
           />
+
+          <section className="mt-10 sm:mt-14">
+            <div className="container max-w-[1200px] mx-auto px-4">
+              <h2 className="text-[#102F77] font-shrikhand text-2xl sm:text-3xl leading-tight">
+                Coaching en action
+              </h2>
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[
+                  "/images/coaching-action-1.jpg",
+                  "/images/coaching-action-2.jpg",
+                  "/images/coaching-action-3.jpg",
+                  "/images/coaching-action-4.jpg",
+                  "/images/coaching-action-5.jpg",
+                  "/images/coaching-action-6.jpg",
+                ].map((src, index) => (
+                  <div
+                    key={src}
+                    className="relative w-full aspect-[4/3] rounded-[12px] overflow-hidden bg-black/5"
+                  >
+                    <Image
+                      src={src}
+                      alt={`Coaching kitesurf - photo ${index + 1}`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 380px"
+                      className="object-cover"
+                      priority={index < 2}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
 
           <InternalSplitSection
             title="Coaching sur-mesure"
