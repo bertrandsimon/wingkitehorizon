@@ -24,9 +24,9 @@ export const images = {
 export const nextDeparture = {
   dates: [
     {
-      fr: "Du 27 juin au 4 juillet",
-      en: "June 27 to July 4",
-      es: "Del 27 de junio al 4 de julio",
+      fr: "du 3 au 10 Octobre",
+      en: "October 3 to 10",
+      es: "Del 3 al 10 de octubre",
     },
     {
       fr: "Du 29 août au 5 septembre",
