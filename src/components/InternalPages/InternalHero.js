@@ -1,17 +1,36 @@
 import Image from "next/image";
 
-export default function InternalHero({ title, subtitle, imageSrc, imageAlt }) {
+export default function InternalHero({
+  title,
+  subtitle,
+  imageSrc,
+  imageAlt,
+  videoSrc,
+  videoPosterSrc,
+}) {
   return (
     <section className="relative w-full min-h-[320px] sm:min-h-[420px] lg:min-h-[520px] flex items-end overflow-hidden rounded-[10px]">
       <div className="absolute inset-0">
-        <Image
-          src={imageSrc}
-          alt={imageAlt || title}
-          fill
-          priority
-          className="object-cover"
-          style={{ objectPosition: "center" }}
-        />
+        {videoSrc
+          ? <video
+              className="w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={videoPosterSrc || imageSrc}
+            >
+              <source src={videoSrc} type="video/mp4" />
+            </video>
+          : <Image
+              src={imageSrc}
+              alt={imageAlt || title}
+              fill
+              priority
+              className="object-cover"
+              style={{ objectPosition: "center" }}
+            />}
         <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-black/5" />
       </div>
 

@@ -12,12 +12,12 @@ export default function Navigation({ isSticky = false }) {
   return (
     <nav>
       {isSticky
-        ? <div className="flex items-center gap-3 sm:gap-4 lg:gap-8 flex-wrap justify-center">
+        ? <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 flex-nowrap justify-center">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className={`text-sm sm:text-sm font-poppins transition-colors whitespace-nowrap px-3 py-1 rounded-full hover:bg-[#55BAC6] hover:text-white ${
+                className={`text-xs sm:text-sm font-poppins transition-colors whitespace-nowrap px-2.5 py-1 rounded-full hover:bg-[#55BAC6] hover:text-white ${
                   pathname === item.href
                     ? "bg-[#55BAC6] text-white"
                     : "text-black"
@@ -28,12 +28,12 @@ export default function Navigation({ isSticky = false }) {
             ))}
           </div>
         : <div className="px-4 sm:px-6 lg:px-8 py-2 sm:py-3">
-            <div className="flex items-center gap-3 sm:gap-4 lg:gap-8 flex-wrap justify-center">
+            <div className="flex items-center gap-2 sm:gap-3 lg:gap-4 flex-nowrap justify-center">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-sm sm:text-sm text-white font-poppins transition-colors whitespace-nowrap px-3 py-1 rounded-full hover:bg-[#55BAC6] hover:text-white"
+                  className="text-xs sm:text-sm text-white font-poppins transition-colors whitespace-nowrap px-2.5 py-1 rounded-full hover:bg-[#55BAC6] hover:text-white"
                 >
                   {item.label}
                 </Link>

@@ -21,6 +21,21 @@ const ROUTES = {
     es: "/es/kite-trips",
   },
   coaching: { fr: "/coaching", en: "/en/coaching", es: "/es/coaching" },
+  "destination-grece": {
+    fr: "/destinations/grece",
+    en: "/en/destinations/greece",
+    es: "/es/destinations/grecia",
+  },
+  "destination-martinique": {
+    fr: "/destinations/martinique",
+    en: "/en/destinations/martinique",
+    es: "/es/destinations/martinica",
+  },
+  "destination-bresil": {
+    fr: "/destinations/bresil",
+    en: "/en/destinations/brazil",
+    es: "/es/destinations/brasil",
+  },
 };
 
 const PATH_TO_ROUTE_KEY = Object.entries(ROUTES).reduce(
@@ -65,7 +80,9 @@ export function getNavItems(locale) {
   if (locale === "en") {
     return [
       { label: "Concept", href: "/en/concept" },
-      { label: "Cruise", href: "/en/cruise" },
+      { label: "Greece cruise", href: "/en/destinations/greece" },
+      { label: "Martinique cruise", href: "/en/destinations/martinique" },
+      { label: "Brazil cruise", href: "/en/destinations/brazil" },
       { label: "Kite trips", href: "/en/kite-trips" },
       { label: "Coaching", href: "/en/coaching" },
     ];
@@ -73,7 +90,9 @@ export function getNavItems(locale) {
   if (locale === "es") {
     return [
       { label: "Concepto", href: "/es/concept" },
-      { label: "Crucero", href: "/es/cruise" },
+      { label: "Crucero Grecia", href: "/es/destinations/grecia" },
+      { label: "Crucero Martinica", href: "/es/destinations/martinica" },
+      { label: "Crucero Brasil", href: "/es/destinations/brasil" },
       { label: "Kite trips", href: "/es/kite-trips" },
       { label: "Coaching", href: "/es/coaching" },
     ];
@@ -81,7 +100,9 @@ export function getNavItems(locale) {
 
   return [
     { label: "Le concept", href: "/le-concept" },
-    { label: "La croisière", href: "/la-croisiere" },
+    { label: "Croisière Grèce", href: "/destinations/grece" },
+    { label: "Croisière Martinique", href: "/destinations/martinique" },
+    { label: "Croisière Brésil", href: "/destinations/bresil" },
     { label: "Kite trips", href: "/kite-trips" },
     { label: "Coaching", href: "/coaching" },
   ];

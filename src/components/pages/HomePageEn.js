@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Banner from "@/components/Banner/Banner";
 import BoatZone from "@/components/BoatZone/BoatZone";
 import Editorial from "@/components/Editorial/Editorial";
@@ -18,6 +19,52 @@ export default function HomePageEn() {
       <div className="mb-30 rounded-[12px] w-full max-w-[1260px] mx-auto transition-colors duration-300 bg-white">
         <div className="p-3 sm:p-5">
           <HeroSection />
+          <section className="mt-8 sm:mt-10">
+            <div className="w-full max-w-[1200px] mx-auto px-4">
+              <div className="rounded-[12px] bg-[#EFEEF1] p-5 sm:p-8">
+                <h2 className="text-[#102F77] font-shrikhand text-2xl sm:text-3xl leading-tight">
+                  3 destinations
+                </h2>
+                <p className="mt-3 text-black font-poppins text-sm sm:text-base leading-[1.92]">
+                  There are now 3 destinations: Greece, Martinique and Brazil.
+                  Same spirit: sailing, riding and life on board.
+                </p>
+                <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                  {[
+                    {
+                      title: "Greece",
+                      subtitle:
+                        "Cyclades · varied spots · sessions with the wind",
+                      href: "/en/destinations/greece",
+                    },
+                    {
+                      title: "Martinique",
+                      subtitle: "Martinique → Grenadines · catamaran · lagoons",
+                      href: "/en/destinations/martinique",
+                    },
+                    {
+                      title: "Brazil",
+                      subtitle: "Wind · ride · details coming soon",
+                      href: "/en/destinations/brazil",
+                    },
+                  ].map((d) => (
+                    <Link
+                      key={d.href}
+                      href={d.href}
+                      className="rounded-[12px] bg-white p-4 sm:p-5 shadow-[0px_12px_30px_rgba(16,47,119,0.10)] ring-1 ring-black/5 transition-colors hover:bg-black/[0.02]"
+                    >
+                      <p className="text-[#102F77] font-poppins font-semibold">
+                        {d.title}
+                      </p>
+                      <p className="mt-1 text-black font-poppins text-sm leading-[1.6]">
+                        {d.subtitle}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
           <section className="mt-8 sm:mt-10">
             <div className="w-full max-w-[1200px] mx-auto px-4">
               <div className="p-1 sm:p-2">

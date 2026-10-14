@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import BookNowButton from "@/components/CTAs/BookNowButton";
@@ -11,6 +12,24 @@ export default function HeroTitle({ slide }) {
   const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
   const [dateIndex, setDateIndex] = useState(0);
+  const destinations =
+    locale === "en"
+      ? [
+          { label: "GREECE", href: "/en/destinations/greece" },
+          { label: "MARTINIQUE", href: "/en/destinations/martinique" },
+          { label: "BRAZIL", href: "/en/destinations/brazil" },
+        ]
+      : locale === "es"
+        ? [
+            { label: "GRECIA", href: "/es/destinations/grecia" },
+            { label: "MARTINICA", href: "/es/destinations/martinica" },
+            { label: "BRASIL", href: "/es/destinations/brasil" },
+          ]
+        : [
+            { label: "GRÈCE", href: "/destinations/grece" },
+            { label: "MARTINIQUE", href: "/destinations/martinique" },
+            { label: "BRÉSIL", href: "/destinations/bresil" },
+          ];
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -93,18 +112,39 @@ export default function HeroTitle({ slide }) {
                 animationTimingFunction: "ease",
               }}
             >
-              <span className="inline-flex items-center justify-center rounded-lg bg-[#ea580c] px-3 py-1.5 text-xs font-medium text-white shadow-sm sm:text-sm font-poppins whitespace-nowrap">
-                {locale === "en"
-                  ? "Next departures: "
-                  : locale === "es"
-                    ? "Próximas salidas: "
-                    : "Prochains départs : "}
-                {
-                  nextDeparture.dates[dateIndex][
-                    locale === "en" ? "en" : locale === "es" ? "es" : "fr"
-                  ]
-                }
-              </span>
+              <div className="inline-flex flex-col items-stretch gap-2">
+                <span className="inline-flex items-center justify-center rounded-lg bg-[#ea580c] px-3 py-1.5 text-xs font-medium text-white shadow-sm sm:text-sm font-poppins whitespace-nowrap">
+                  {locale === "en"
+                    ? "Next departures: "
+                    : locale === "es"
+                      ? "Próximas salidas: "
+                      : "Prochains départs : "}
+                  {
+                    nextDeparture.dates[dateIndex][
+                      locale === "en" ? "en" : locale === "es" ? "es" : "fr"
+                    ]
+                  }
+                </span>
+
+                <div className="flex flex-wrap items-center justify-center sm:justify-end gap-2">
+                  <span className="text-xs sm:text-sm text-white/90 font-poppins whitespace-nowrap">
+                    {locale === "en"
+                      ? "Destinations:"
+                      : locale === "es"
+                        ? "Destinos:"
+                        : "Destinations :"}
+                  </span>
+                  {destinations.map((d) => (
+                    <Link
+                      key={d.href}
+                      href={d.href}
+                      className="inline-flex items-center justify-center rounded-lg bg-white px-3 py-1.5 text-xs font-semibold text-black hover:bg-white/90 transition-colors font-poppins whitespace-nowrap shadow-sm ring-1 ring-black/10"
+                    >
+                      {d.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

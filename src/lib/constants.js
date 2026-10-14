@@ -24,14 +24,9 @@ export const images = {
 export const nextDeparture = {
   dates: [
     {
-      fr: "du 3 au 10 Octobre",
-      en: "October 3 to 10",
-      es: "Del 3 al 10 de octubre",
-    },
-    {
-      fr: "Du 29 août au 5 septembre",
-      en: "August 29 to September 5",
-      es: "Del 29 de agosto al 5 de septiembre",
+      fr: "Du 09 janvier 2027 au 20 janvier 2027 (Martinique)",
+      en: "January 9 to January 20, 2027 (Martinique)",
+      es: "Del 9 al 20 de enero de 2027 (Martinica)",
     },
   ],
 };

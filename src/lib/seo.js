@@ -42,6 +42,26 @@ export const SEO = {
       keywords:
         "séjour kite Paros, kite trip bateau, croisière kitesurf, Cyclades, coaching kitesurf, Meltem",
     },
+    "destination-grece": {
+      title: "Destination Grèce | Wing Kite Horizon",
+      description:
+        "Croisière et kite trip en Grèce : navigation entre îles, spots, coaching et expérience à bord.",
+      keywords:
+        "destination Grèce, kitesurf Grèce, Cyclades, croisière kitesurf, coaching, Paros",
+    },
+    "destination-martinique": {
+      title: "Destination Martinique | Wing Kite Horizon",
+      description:
+        "De la Martinique aux Grenadines en catamaran : 10 jours / 9 nuits, navigation, mouillages, lagons et îles des Caraïbes.",
+      keywords:
+        "Martinique, Grenadines, catamaran, croisière Caraïbes, Tobago Cays, Bequia, Sainte-Lucie",
+    },
+    "destination-bresil": {
+      title: "Destination Brésil | Wing Kite Horizon",
+      description:
+        "Séjours et trips au Brésil : vent, spots et expérience glisse. Détails à venir.",
+      keywords: "Brésil, kitesurf, spots, séjour, trip",
+    },
   },
   en: {
     home: {
@@ -78,6 +98,26 @@ export const SEO = {
         "An unforgettable kite stay in Paros: a unique boat-based kite trip combining sailing, coaching, progression and Cyclades exploration.",
       keywords:
         "Paros kitesurf trip, boat kite trip, kitesurf cruise, Cyclades, coaching, Meltem",
+    },
+    "destination-grece": {
+      title: "Destination Greece | Wing Kite Horizon",
+      description:
+        "Cruise and kite trips in Greece: sailing between islands, spots, coaching and life on board.",
+      keywords:
+        "destination Greece, kitesurf Greece, Cyclades, kitesurf cruise, coaching, Paros",
+    },
+    "destination-martinique": {
+      title: "Destination Martinique | Wing Kite Horizon",
+      description:
+        "From Martinique to the Grenadines by catamaran: 10 days / 9 nights, sailing, anchorages, lagoons and Caribbean islands.",
+      keywords:
+        "Martinique, Grenadines, catamaran, Caribbean cruise, Tobago Cays, Bequia, Saint Lucia",
+    },
+    "destination-bresil": {
+      title: "Destination Brazil | Wing Kite Horizon",
+      description:
+        "Trips in Brazil: wind, spots and a ride-focused experience. Details coming soon.",
+      keywords: "Brazil, kitesurf, spots, trip, stay",
     },
   },
   es: {
@@ -116,6 +156,26 @@ export const SEO = {
       keywords:
         "viaje kitesurf Paros, kite trip barco, crucero kitesurf, Cícladas, coaching, Meltemi",
     },
+    "destination-grece": {
+      title: "Destino Grecia | Wing Kite Horizon",
+      description:
+        "Crucero y kite trips en Grecia: navegación entre islas, spots, coaching y vida a bordo.",
+      keywords:
+        "destino Grecia, kitesurf Grecia, Cícladas, crucero kitesurf, coaching, Paros",
+    },
+    "destination-martinique": {
+      title: "Destino Martinica | Wing Kite Horizon",
+      description:
+        "De Martinica a las Granadinas en catamarán: 10 días / 9 noches, navegación, fondeos, lagunas e islas del Caribe.",
+      keywords:
+        "Martinica, Granadinas, catamarán, crucero Caribe, Tobago Cays, Bequia, Santa Lucía",
+    },
+    "destination-bresil": {
+      title: "Destino Brasil | Wing Kite Horizon",
+      description:
+        "Viajes en Brasil: viento, spots y una experiencia centrada en navegar. Próximamente.",
+      keywords: "Brasil, kitesurf, spots, viaje, estancia",
+    },
   },
 };
 
@@ -131,6 +191,21 @@ const ROUTES = {
     es: "/es/kite-trips",
   },
   coaching: { fr: "/coaching", en: "/en/coaching", es: "/es/coaching" },
+  "destination-grece": {
+    fr: "/destinations/grece",
+    en: "/en/destinations/greece",
+    es: "/es/destinations/grecia",
+  },
+  "destination-martinique": {
+    fr: "/destinations/martinique",
+    en: "/en/destinations/martinique",
+    es: "/es/destinations/martinica",
+  },
+  "destination-bresil": {
+    fr: "/destinations/bresil",
+    en: "/en/destinations/brazil",
+    es: "/es/destinations/brasil",
+  },
 };
 
 function toLocalePath(path, targetLocale) {

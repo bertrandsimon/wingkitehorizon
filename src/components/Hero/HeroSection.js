@@ -14,6 +14,7 @@ import HeroTitle from "./HeroTitle";
 export default function HeroSection({ slides: slidesProp }) {
   const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
+  const isHome = pathname === "/" || pathname === "/en" || pathname === "/es";
   const slides =
     slidesProp ||
     (locale === "en"
@@ -27,7 +28,16 @@ export default function HeroSection({ slides: slidesProp }) {
             taglineLine2: "starts here",
           },
           {
+            image: "/images/banner/slide-martinique.jpg",
+            title1: "Martinique to",
+            title2: "the Grenadines",
+            taglineLine1: "Catamaran cruise",
+            taglineEmphasis: "10 days",
+            taglineLine2: "/ 9 nights",
+          },
+          {
             image: "/images/slider2.jpg",
+            videoSrc: "/videos/home-banner.mp4",
             title1: "Sailing Greece",
             title2: "islands, coves & wind",
             taglineLine1: "A change of scenery",
@@ -54,7 +64,16 @@ export default function HeroSection({ slides: slidesProp }) {
               taglineLine2: "empieza aquí",
             },
             {
+              image: "/images/banner/slide-martinique.jpg",
+              title1: "Martinica →",
+              title2: "Granadinas",
+              taglineLine1: "Crucero en catamarán",
+              taglineEmphasis: "10 días",
+              taglineLine2: "/ 9 noches",
+            },
+            {
               image: "/images/slider2.jpg",
+              videoSrc: "/videos/home-banner.mp4",
               title1: "Navegar en Grecia",
               title2: "islas, calas y viento",
               taglineLine1: "Cambio de aires",
@@ -80,7 +99,16 @@ export default function HeroSection({ slides: slidesProp }) {
               taglineLine2: "commence ici",
             },
             {
+              image: "/images/banner/slide-martinique.jpg",
+              title1: "Martinique →",
+              title2: "Grenadines",
+              taglineLine1: "Croisière catamaran",
+              taglineEmphasis: "10 jours",
+              taglineLine2: "/ 9 nuits",
+            },
+            {
               image: "/images/slider2.jpg",
+              videoSrc: "/videos/home-banner.mp4",
               title1: "Naviguer en Grèce",
               title2: "îles, criques & vent",
               taglineLine1: "Dépaysement",
@@ -121,14 +149,27 @@ export default function HeroSection({ slides: slidesProp }) {
       {/* Background Image */}
       <div className="absolute inset-0 z-0 rounded-[10px] overflow-hidden">
         <div className="relative w-full h-full overflow-hidden pointer-events-none rounded-[10px]">
-          <Image
-            key={slides[currentIndex].image}
-            src={slides[currentIndex].image}
-            alt="Hero background"
-            fill
-            className="object-cover transition-opacity duration-500"
-            style={{ objectPosition: "center top" }}
-          />
+          {isHome && slides[currentIndex].videoSrc
+            ? <video
+                className="w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster={slides[currentIndex].image}
+                key={slides[currentIndex].videoSrc}
+              >
+                <source src={slides[currentIndex].videoSrc} type="video/mp4" />
+              </video>
+            : <Image
+                key={slides[currentIndex].image}
+                src={slides[currentIndex].image}
+                alt="Hero background"
+                fill
+                className="object-cover transition-opacity duration-500"
+                style={{ objectPosition: "center top" }}
+              />}
           <div className="absolute inset-0 bg-black/12" />
         </div>
       </div>

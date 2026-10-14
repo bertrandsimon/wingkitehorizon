@@ -81,15 +81,20 @@ export default function Banner() {
   return (
     <>
       <section className="relative w-full min-h-[650px] sm:h-[500px] overflow-hidden">
-        {/* Background Image */}
+        {/* Background Video */}
         <div className="absolute inset-0">
-          <Image
-            src="/images/banner/banner-boat.png"
-            alt="Catamaran sailing"
-            fill
-            className="object-cover"
-            priority
-          />
+          <video
+            className="w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/images/banner/banner-boat.png"
+          >
+            <source src="/videos/home-banner.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/10" />
         </div>
 
         {/* Content Grid - Right Side */}
